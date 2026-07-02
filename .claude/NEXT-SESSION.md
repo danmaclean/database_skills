@@ -19,9 +19,10 @@ Last updated: 2026-07-02.
   single-correct and the structures Aims rewrite confirmed OK. Decision trail in `AUTHOR-REVIEW.md`.
 - **Question tallies:** 12 + 14 + 11 = 37, each one `.correct-choice` + a "Why?" callout.
 
-**▶ Remaining follow-ups (non-blocking):** retire the three shinyapps.io deployments now the new site
-is confirmed live; optional in-browser click-test of naquiz on the live pages; future maintenance of
-the drift-prone answer counts flagged in `AUTHOR-REVIEW.md`.
+**▶ Remaining follow-ups (non-blocking):** optional in-browser click-test of naquiz on the live pages;
+future maintenance of the drift-prone answer counts flagged in `AUTHOR-REVIEW.md`. (The three
+shinyapps.io tutorial deployments have been **undeployed** by the author, and the old
+`danmaclean/databases` sub-book repo is **archived** — both done 2026-07-02.)
 
 > **Incident/lesson (2026-07-02):** a stray no-op `fork` launched during scaffolding inherited the
 > full plan and autonomously ran the whole conversion *in parallel* with the intended agents, doing
@@ -29,43 +30,39 @@ the drift-prone answer counts flagged in `AUTHOR-REVIEW.md`.
 > Nothing was lost; history was rebuilt cleanly off `master`. **Lesson: never leave a `fork` running
 > with a vague/no-op prompt — it will act on your whole context. Kill stray agents immediately.**
 
-## Scaffold contents (Phase 0)
+## Course integration & parity (done 2026-07-02, after go-live)
 
-The seed repo holds:
+`database_skills` now replaces the old `databases` sub-book everywhere in the course:
 
-- `_quarto.yml` — flat 3-chapter book, `naquiz` filter, `format: html` (cosmo), R-free.
-- `_extensions/nareal/naquiz` — vendored, **with the `.choices`-scoped CSS fix already applied**.
-- `index.qmd` — preface; `01-transcriptomes.qmd` / `02-genomes.qmd` / `03-structures.qmd` — **stubs**.
-- `.github/workflows/render.yml` + `publish.yml` — Quarto-only CI (no R/renv).
-- `CLAUDE.md` + `.claude/` (SPEC, ROADMAP, MEMORY, this file, and `prompts/`).
-- **The skeleton renders clean** (`quarto render` → exit 0). Build output (`docs/`) is git-ignored.
+- **Folded the `databases` sub-book text into this book** (branch `add-course-text`, merged to `master`):
+  new `00-primary-secondary.qmd` background chapter (verbatim from `databases/02-primary-secondary.qmd`),
+  prerequisites (tool installs + Colab) added to the `index.qmd` preface, and an "About this chapter"
+  Questions/Objectives opener prepended to each tutorial. Old shinyapps-link callouts dropped.
+- **Repointed the two course hubs** at `https://danmaclean.github.io/database_skills/`:
+  - `danmaclean/data_science` (main MSc hub) — link in `genomics.qmd`.
+  - `danmaclean/data_science_tsl` (institute variant) — link in its own `onlinedatabases.qmd` chapter.
+  Both hubs serve from **committed `docs/`** (no CI) and have **executable R chapters**, so rather than a
+  full renv render (which churns every page's `last-modified` date) the URL was swapped **surgically** in
+  three places each: the source `.qmd`, the built `docs/*.html`, and Quarto's `idx/*.json` cache. Both live.
+- **Removed dead chatbot sidebar links from `data_science_tsl`** (parity with `data_science`, which had
+  already dropped them): four `other-links` chatbots on the defunct `tsl-bioinformatics.shinyapps.io`.
+  Removed the `other-links` block from `_quarto.yml` and stripped the one-line
+  `<div class="quarto-other-links">…</div>` sidebar block from all 11 committed `docs/*.html`. Live.
+- **Originals retired:** author undeployed the three shinyapps tutorials; `danmaclean/databases` archived.
+  Residual: the two hubs' downloadable **PDF/EPUB** still show the old DB URL until their next full render
+  (cosmetic; chatbot links were HTML-sidebar-only so never in the PDFs).
 
-Nothing is committed yet — the working tree is the initial state. (First commit + branch discipline
-begins with Phase 1, or commit the scaffold as-is first; author's call.)
+## Key facts / maintenance notes
 
-## ▶ NEXT — Phase 1: convert the three chapters
+- **This book has no R** — pure Quarto + naquiz. Don't add webR/renv/knitr. Don't re-`quarto add` naquiz
+  (clobbers the vendored `.choices`-scoped CSS fix; see `MEMORY.md`). Migrate-verbatim/flag-don't-fix and
+  the known content quirks are in `SPEC.md` / `AUTHOR-REVIEW.md`.
+- **`master` = trunk + live source**; `publish.yml` republishes `gh-pages` on every push. Never commit `docs/`.
+- **Committed-docs hubs (`data_science`, `data_science_tsl`):** to change a link without a heavy render,
+  edit source `.qmd` + `docs/*.html` + `idx/*.json` together (the surgical pattern used here).
+- **Drift-prone answers** (live DB counts) are catalogued in `AUTHOR-REVIEW.md` for a future refresh pass.
 
-Run the three conversion agents (parallel — chapters are independent). Each has a ready prompt:
-
-1. `.claude/prompts/agent-transcriptomes.md` → `01-transcriptomes.qmd` (from `../transcriptome_dbs/transcriptomes.Rmd`)
-2. `.claude/prompts/agent-genomes.md` → `02-genomes.qmd` (from `../genome_dbs/genomes.Rmd`)
-3. `.claude/prompts/agent-structures.md` → `03-structures.qmd` (from `../structural_dbs/structural_databases.Rmd`)
-
-Each follows `SPEC.md`: prose verbatim + polish, every `question()` → naquiz `.question` block +
-a "Why?" callout, stay R-free, and emit a `FLAGS-<chapter>.md` report.
-
-Then **Phase 2 — integration/QA**: `.claude/prompts/agent-integration.md` (full render, CSS-bleed
-check, consolidate FLAGS).
-
-Then **Phase 3 — author review & go-live** (see ROADMAP): review FLAGS, create
-`danmaclean/database_skills` on GitHub, push, build `gh-pages`, flip Pages source (manual UI step).
-
-## Key facts a new session needs
-
-- **No R anywhere.** Pure Quarto + naquiz. Do not add webR/renv/knitr. (One inline R expr in the
-  genome source → replace with literal `89.85`.)
-- **Migrate verbatim, flag don't fix.** Known content bugs are listed in `SPEC.md` ("Known flags").
-- **Don't re-`quarto add` naquiz** — it would clobber the vendored CSS fix (see `MEMORY.md`).
-- **Source repos are read-only** (`TeamMacLean/*` on `main`). Write only into `database_skills`.
-- **Repo not yet on GitHub.** Creating `danmaclean/database_skills` + flipping Pages source are
-  Phase-3 manual steps (the working PAT lacks Pages-admin; see `MEMORY.md`).
+---
+*History: scaffolded (Phase 0) → 3 chapters converted via parallel agents (Phase 1) → integration/QA
+(Phase 2) → author review + go-live (Phase 3) → course integration/parity (above). The conversion agent
+prompts remain in `.claude/prompts/` for reference.*
