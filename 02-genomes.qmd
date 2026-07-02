@@ -1,7 +1,472 @@
 # Genomic databases and genome assembly
 
-::: {.callout-warning appearance="simple"}
-**Stub — not yet converted.** This chapter is to be produced by the downstream conversion agent
-from the source tutorial at `../genome_dbs/genomes.Rmd`, following `.claude/SPEC.md` and
-`.claude/prompts/agent-genomes.md`. Replace this whole file with the converted chapter.
+## Aims
+
+The aim of this tutorial is to examine how we can use public genomics databases, cross reference between them and download data for our own analyses. We shall work through an example in which we seek and retrieve data for an interesting species and learn what tools we have for downloading and processing data.
+
+We will then go on to assemble and annotate a genome assembly with a basic pipeline.
+
+## Glossary
+
+- **Sequence assembly**: process of aligning and merging fragments of sequences to reconstruct longer sequences called contiguous sequences (a.k.a 'contigs').
+
+- **Contigs**: a contiguous sequences generated during sequence assembly.
+
+- **Scaffolds**: sets of oriented, sorted and ordered contigs.
+
+- **Genome assembly**: representation of the complete genomic sequence of an organism. A genome assembly is the ultimate result of the sequence assembly process.
+
+NB: the terms 'contigs' and 'scaffolds' are often used interchangeably, however scaffolds contain gaps while contigs do not.
+
+
+## Browsing for information
+
+Let's use a combination of the GenBank/NCBI databases and the ENA to find out information and data for *Campylobacter concisus* [https://en.wikipedia.org/wiki/Campylobacter_concisus](https://en.wikipedia.org/wiki/Campylobacter_concisus)
+
+We'll first make sure we know exactly which organism we are talking about and learn how the databases identify species. Each taxon known to science has a unique ID number at the NCBI Taxonomy Database [https://www.ncbi.nlm.nih.gov/taxonomy](https://www.ncbi.nlm.nih.gov/taxonomy). This unique ID number is the "taxonomic identifier' (a.k.a 'taxon ID', 'tax ID' or 'taxid').
+
+Use the NCBI Taxonomy Browser to find the taxon ID for *C. concisus*
+
+:::::{.question}
+What is the species taxon ID for *C. concisus*?
+
+::::{.choices}
+:::{.choice}
+11485
 :::
+
+:::{.choice .correct-choice}
+199
+:::
+
+:::{.choice}
+33237
+:::
+::::
+:::::
+
+:::{.callout-note collapse="true"}
+## Why?
+Every taxon in the NCBI Taxonomy Database has one stable, unique numeric ID; for *Campylobacter concisus* it's **199**. The other numbers belong to different taxa, so pinning down the taxon ID first is what lets you search every linked database for exactly the right species.
+:::
+
+Once we know how the databases refer to the exact species we are interested in, we can find data for that species uniquely and accurately.
+
+Use the taxid as input at ENA to find assemblies. Assemblies are the result of combining sequence reads in order to get a whole genome sequence. For bacteria the process can often result in a complete, unfragmented genome sequence. We will search ENA for *C. concisus* genome assemblies.
+
+Use the `Query Builder (Advanced Search)` [https://www.ebi.ac.uk/ebisearch/querybuilder.ebi](https://www.ebi.ac.uk/ebisearch/querybuilder.ebi) to build a query that will:
+
+    1. Search for assemblies
+    2. Use a TAXON ID that corresponds to the one you found above
+
+
+:::::{.question}
+How many Assemblies are retrieved?
+
+::::{.choices}
+:::{.choice .correct-choice}
+about 250
+:::
+
+:::{.choice}
+about 32,000
+:::
+
+:::{.choice}
+about 20
+:::
+::::
+:::::
+
+:::{.callout-note collapse="true"}
+## Why?
+Searching ENA by taxon ID returns every assembly deposited for that species, which for *C. concisus* is on the order of a couple of hundred. The much larger count would sweep in records beyond a single species, and the tiny count would miss most of what's been deposited. Note that this is a live count that grows over time, so the exact number will drift.
+:::
+
+
+:::::{.question}
+What is the genome length of the assembly with Accession `GCA_015679965`?
+
+::::{.choices}
+:::{.choice}
+1861371 Mbp
+:::
+
+:::{.choice}
+15679965 bp
+:::
+
+:::{.choice .correct-choice}
+approximately 1.8 Mbp
+:::
+::::
+:::::
+
+:::{.callout-note collapse="true"}
+## Why?
+The assembly record reports a total length of roughly 1.8 million bases, which is a typical size for a *Campylobacter* genome. "1861371 Mbp" confuses bases with megabases (that many megabases would be an absurdly huge genome), and "15679965 bp" just echoes digits from the accession rather than the reported length.
+:::
+
+As an assembly comes from combining the raw sequence reads into a larger contiguous sequence the raw reads are held on a database too. The set of reads are grouped into an object called a `Study` and the Assembly belongs to that as part of the output of the `Study`. Explore the page and it's links to answer this...
+
+:::::{.question}
+What parent ENA study did this assembly come from?
+
+::::{.choices}
+:::{.choice}
+SAMN05908145
+:::
+
+:::{.choice .correct-choice}
+PRJNA348396
+:::
+
+:::{.choice}
+GCA_015679965.1
+:::
+::::
+:::::
+
+:::{.callout-note collapse="true"}
+## Why?
+Study (project) accessions carry the `PRJ` prefix, so `PRJNA348396` is the parent study. `SAMN05908145` is a BioSample accession (the biological source material) and `GCA_015679965.1` is the assembly accession itself — related records, but not the study the assembly belongs to.
+:::
+
+
+Find information about the study either by starting a new search at the query builder at ENA with the `Study` ID you found. Or click through if the hyperlink is active.
+
+The `Study` will contain lots of things like the sample used, the experimental description, and the runs of the sequencing machine. These all contain important metadata about how the reads were created. Explore the table to answer...
+
+:::::{.question}
+What sort of sequencing was performed for the experiment?
+
+::::{.choices}
+:::{.choice .correct-choice}
+Mostly Illumina Paired End
+:::
+
+:::{.choice}
+Mostly Sanger
+:::
+
+:::{.choice}
+Only PacBio
+:::
+::::
+:::::
+
+:::{.callout-note collapse="true"}
+## Why?
+The run metadata records the sequencing platform and library layout; here the runs are mostly Illumina paired-end, the standard short-read approach for this kind of bacterial genome project. Sanger and PacBio are different technologies that the metadata doesn't list for this study.
+:::
+
+:::::{.question}
+How many runs appear to have gone into the assembly?
+
+::::{.choices}
+:::{.choice}
+5
+:::
+
+:::{.choice}
+199
+:::
+
+:::{.choice .correct-choice}
+32
+:::
+::::
+:::::
+
+:::{.callout-note collapse="true"}
+## Why?
+The study's run table lists each sequencing run separately, and counting them gives 32. The other options are unrelated numbers (199 is the taxon ID), so it always pays to read the run count straight from the study record rather than guessing.
+:::
+
+## Downloading data with SRAtools
+
+The web page provides a download button for the data, and while for this small genome with small files (relatively speaking) downloading through the browser might work, we can do this better using the `SRAtools` package on the command-line. The `SRAtools` helps downloading data from the Sequence Nucleotide Archive, a primary database like the ENA.
+
+Start up your terminal program. We can use the `SRAtools` package to retrieve data in one steps. We use the `fastqdump` command to prepare the data and download it to an uncompressed text file in fastq format. Note that often you will not want uncompressed data as raw read data can be very large. You can check the SRAtools manuals for more flexible download options [here](https://www.ncbi.nlm.nih.gov/sra/docs/sradownload/#download-sequence-data-files-usi)
+
+Download the reads for just one run - with ID `SRR4434292` as follows:
+
+```
+fastq-dump SRR4434292
+```
+
+
+:::::{.question}
+How many reads were downloaded?
+
+::::{.choices}
+:::{.choice}
+399
+:::
+
+:::{.choice}
+428
+:::
+
+:::{.choice .correct-choice}
+399,928
+:::
+::::
+:::::
+
+:::{.callout-note collapse="true"}
+## Why?
+When `fastq-dump` finishes it reports how many spots (reads) it wrote, which for this run is 399,928. The smaller numbers are just truncated fragments of that figure — the tool's own summary line is the reliable source.
+:::
+
+:::::{.question}
+How many files were downloaded?
+
+::::{.choices}
+:::{.choice .correct-choice}
+1
+:::
+
+:::{.choice}
+2
+:::
+
+:::{.choice}
+399,928
+:::
+::::
+:::::
+
+:::{.callout-note collapse="true"}
+## Why?
+Run plain `fastq-dump` without the `--split-files` option and all the reads land in a single fastq file, so you get one file. You'd only get two files if you asked it to split paired mates into separate forward and reverse files.
+:::
+
+:::::{.question}
+How much (data in Megabytes) was downloaded?
+
+::::{.choices}
+:::{.choice .correct-choice}
+about 51
+:::
+
+:::{.choice}
+about 400
+:::
+
+:::{.choice}
+399,928
+:::
+::::
+:::::
+
+:::{.callout-note collapse="true"}
+## Why?
+The uncompressed fastq for this run is roughly 51 MB on disk — a reasonable size given ~400,000 short reads plus their quality strings. The 399,928 figure is the read count, not a file size, which is a common thing to mix up.
+:::
+
+## Assembling the reads with SPAdes
+
+We can now perform an assembly of the reads, just to finish our pipeline off. The attempt here is just for completeness, we won't get a good assembly because we're using a restricted set of reads and a small computer.
+
+We'll use the `SPAdes` assembler [https://github.com/ablab/spades](https://github.com/ablab/spades), which will run with a simple command line like this:
+
+```
+spades.py --only-assembler --12 SRR4434292.fastq -o test_assembly
+```
+
+The command line specifies that we should run `SPAdes` using the assembler parts only (`--only-assembler`) and that the paired end reads are all in one file (`--12`), namely the fastq we downloaded from SRA. The output (`-o`) should go in a folder called `test_assembly`.
+
+Run the command line and be prepared to wait. It takes about 10 minutes to complete. When it does, check the number of assembled scaffolds using the `count (-c)` facility of `grep`.
+
+```
+grep -c '>' test_assembly/scaffolds.fasta
+```
+
+
+:::::{.question}
+How many scaffolds were the reads assembled into
+
+::::{.choices}
+:::{.choice}
+39
+:::
+
+:::{.choice}
+42
+:::
+
+:::{.choice .correct-choice}
+about 65
+:::
+::::
+:::::
+
+:::{.callout-note collapse="true"}
+## Why?
+`grep -c '>'` counts the FASTA header lines, and each header marks one scaffold, so the count of `>` lines is the number of scaffolds — about 65 here. A well-resolved bacterial assembly would have far fewer, but our restricted read set can only be pieced together into these many fragments.
+:::
+
+## Annotation of scaffolds with prokka
+
+Once we have a genome assembly, we will want to know what the genes in it are. There are numerous pipelines we can use to do this, certainly for prokaryotes like our *C. concisus* test here. One good one is `prokka` [https://github.com/tseemann/prokka](https://github.com/tseemann/prokka) which can give us a nice fast and generally accurate annotation over our contigs.
+
+Running `prokka` in basic mode goes like this - just give it the `scaffold.fasta` file from the assembly.
+
+```
+prokka test_assembly/scaffolds.fasta
+```
+
+If it complains about ID lengths, try this variant.
+
+```
+prokka --centre X --compliant --force test_assembly/scaffolds.fasta
+```
+
+After about 5 minutes it will report it is finished. A timestamped set of files in a timestamped folder will be created, e.g `PROKKA_06242021/PROKKA_06242021.txt`.
+
+The file `PROKKA_06242021/PROKKA_06242021.txt` contains a summary of the annotation. Here is the contents of this one:
+
+```
+organism: Genus species strain
+contigs: 68
+bases: 1923495
+CDS: 1905
+rRNA: 2
+tRNA: 38
+tmRNA: 1
+```
+
+:::::{.question}
+How many protein Coding Sequences were found?
+
+::::{.choices}
+:::{.choice .correct-choice}
+1905
+:::
+
+:::{.choice}
+68
+:::
+
+:::{.choice}
+38
+:::
+::::
+:::::
+
+:::{.callout-note collapse="true"}
+## Why?
+Protein coding sequences are the `CDS` line of the `prokka` summary, which reads 1905. The 68 is the number of contigs and 38 is the tRNA count — both are in the same summary, so read the row label carefully to pick out the coding sequences.
+:::
+
+The rest of the files in the folder contain various aspects of an annotation
+
+    1. <timestamp>.ffn = transcript sequences
+    2. <timestamp>.gff = annotations, gene descriptions, coordinates on genome
+    3. <timestamp>.faa = protein sequences.
+
+
+## Assessing the annotation with BUSCO
+
+Once we have constructed an annotation we naturally would like to know how complete it is. We can assess that by seeing how many of the conserved genes in that lineage we have been able to reconstruct, that is to ask the question 'how many of the genes that should be in our genome did we find?' We can do this using the tool `BUSCO` [https://busco.ezlab.org/busco_userguide.html](https://busco.ezlab.org/busco_userguide.html). `BUSCO` has a set of conserved genes that it calls `BUSCO GROUPS` for each lineage. It will search and tell you how many it found and how many it was expecting. The higher a proportion your analysis finds, the better the assembly and annotation is.
+
+`BUSCO` needs our transcript sequences and the lineage we want to assess them in - *C. concisus* is an epsilon proteobacterium, so we can use that (the manual for BUSCO shows you how to work out what lineages it can use). Then we simply pass `BUSCO` the input file (`-i`) and the lineage tag (`-l`) and a folder to put the results in (`-o`) along with telling it to work in `transcriptome` mode (`-m transcriptome`)
+
+For the timestamped `prokka` annotation run above the command looks like this
+
+```
+busco -i PROKKA_06242021/PROKKA_06242021.ffn -l epsilonproteobacteria_odb10 -o busco_out -m transcriptome
+```
+
+Do the same command for your own `prokka` run. *REMEMBER TO CHANGE THE TIMESTAMP TO THE ONE TODAY* The analysis should take about 5 minutes. The summary results go into a file called `busco_out/short_summary.specific.epsilonproteobacteria_odb10.busco_out.txt`.
+
+
+Inspect the file, when it should look something like this
+
+```
+
+	--------------------------------------------------
+	|Results from dataset epsilonproteobacteria_odb10 |
+	--------------------------------------------------
+	|C:89.8%[S:89.8%,D:0.0%],F:0.2%,M:10.0%,n:591     |
+	|531	Complete BUSCOs (C)                         |
+	|531	Complete and single-copy BUSCOs (S)         |
+	|0	Complete and duplicated BUSCOs (D)            |
+	|1	Fragmented BUSCOs (F)                         |
+	|59	Missing BUSCOs (M)                            |
+	|591	Total BUSCO groups searched                 |
+	--------------------------------------------------
+
+```
+
+:::::{.question}
+How many BUSCOs (conserved genes) did the program expect to find?
+
+::::{.choices}
+:::{.choice}
+531
+:::
+
+:::{.choice}
+59
+:::
+
+:::{.choice .correct-choice}
+591
+:::
+::::
+:::::
+
+:::{.callout-note collapse="true"}
+## Why?
+The "Total BUSCO groups searched" line (`n:591`) is the number of conserved genes BUSCO expected for the epsilonproteobacteria lineage — the denominator for completeness. 531 is how many it actually found and 59 is how many were missing.
+:::
+
+:::::{.question}
+How many BUSCOs (conserved genes) did the program actually find?
+
+::::{.choices}
+:::{.choice .correct-choice}
+531
+:::
+
+:::{.choice}
+59
+:::
+
+:::{.choice}
+591
+:::
+::::
+:::::
+
+:::{.callout-note collapse="true"}
+## Why?
+The "Complete BUSCOs (C)" line reports 531 genes recovered from the 591 that were searched for. 59 is the missing count and 591 is the total expected, so the found figure is the one on the Complete line.
+:::
+
+:::::{.question}
+This is a good result, right?
+
+::::{.choices}
+:::{.choice .correct-choice}
+Yes
+:::
+
+:::{.choice}
+No
+:::
+::::
+:::::
+
+:::{.callout-note collapse="true"}
+## Why?
+Recovering 531 of 591 conserved genes is a high completeness score, which is a good outcome given we assembled from a deliberately small read set. Higher completeness means more of the genes that ought to be present were actually reconstructed.
+:::
+
+The result 531 / 591 BUSCOs found (89.85% ) is not bad - considering we assembled a genome from quite a small number of reads. For real use cases we might hope for a lot better from prokaryote data. For large plant genomes numbers might be similar.
+
+## Wrap up
+
+And there we complete a full experiment, using public databases to identify a species of interest, download some reads for it and assemble them using a genome assembler. Then we annotated the assembly to find genes and assessed the set of genes we did find to see how many of the ones we expected to be there were in fact there.
