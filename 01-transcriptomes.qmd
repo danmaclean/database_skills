@@ -1,8 +1,387 @@
 # Gene expression databases and expression analysis
 
-::: {.callout-warning appearance="simple"}
-**Stub — not yet converted.** This chapter is to be produced by the downstream conversion agent
-from the source tutorial at `../transcriptome_dbs/transcriptomes.Rmd`, following
-`.claude/SPEC.md` and `.claude/prompts/agent-transcriptomes.md`. Replace this whole file with the
-converted chapter.
+## Aims
+
+The aim of this tutorial is to examine how we can use public genomics databases to retrieve RNAseq data that describes expression of genes. We shall then work through an example in which we carry out expression estimates for the data we downloaded.
+
+## Browsing for expression data
+
+The Gene Expression Omnibus is a great place to search for gene expression data. There is a general 'advanced' search page at [https://www.ncbi.nlm.nih.gov/gds/advanced/](https://www.ncbi.nlm.nih.gov/gds/advanced/) which allows you to build a complex search. We'll skip past that and jump straight to a given GEO accession. This is simply because we want to use a small dataset that will run quickly.
+
+We'll use a simple *E. coli* dataset that examines gene expression at different points of the growth phase in culture, one sample at 8h (mid logarithmic growth) and one sample at 14h (late logarithmic growth).
+
+Use the GEO Advanced Search to find records relating to the accession `GSE77674`.
+
+:::::{.question}
+How many samples are available for the Series accession record we used?
+
+::::{.choices}
+:::{.choice}
+1
 :::
+
+:::{.choice .correct-choice}
+2
+:::
+
+:::{.choice}
+3
+:::
+::::
+:::::
+
+:::{.callout-note collapse="true"}
+## Why?
+A GEO Series (`GSE`) record groups all the samples in an experiment; this one compares two growth-phase time points, so it holds exactly two Sample (`GSM`) records — one for the 8h culture and one for the 14h culture.
+:::
+
+Now that we found the record for the accession we can see the metadata about the experiment submitted, in particular the sample information.
+
+:::::{.question}
+What sequencing machine was used?
+
+::::{.choices}
+:::{.choice}
+454
+:::
+
+:::{.choice .correct-choice}
+Illumina Hiseq
+:::
+
+:::{.choice}
+Nanopore
+:::
+::::
+:::::
+
+:::{.callout-note collapse="true"}
+## Why?
+The platform is recorded in each sample's metadata; here it lists an Illumina HiSeq instrument. Knowing the platform matters because read length and error profile differ between 454, Illumina and Nanopore, and that shapes how you process the reads.
+:::
+
+<!-- FLAG geoacc-3: source distractor was answer("\tSRP069289") with a literal leading tab; stripped it (cosmetic). -->
+:::::{.question}
+Which sample accession describes the 8h reads?
+
+::::{.choices}
+:::{.choice .correct-choice}
+GSM2055958
+:::
+
+:::{.choice}
+GSM2055959
+:::
+
+:::{.choice}
+SRP069289
+:::
+::::
+:::::
+
+:::{.callout-note collapse="true"}
+## Why?
+Individual samples in GEO carry `GSM` accessions, so `GSM2055958` (the 8h sample) is the right form of ID. `SRP069289` is an SRA Study accession — it names the whole sequencing project in SRA, not a single sample.
+:::
+
+<!-- FLAG taxid-1: source marks "K12f" correct; probable typo for "K12". Kept source string verbatim as the correct choice per flag-don't-fix policy. -->
+:::::{.question}
+What *strain* of *E. coli* was used?
+
+::::{.choices}
+:::{.choice}
+DH5a
+:::
+
+:::{.choice}
+W3110
+:::
+
+:::{.choice .correct-choice}
+K12f
+:::
+::::
+:::::
+
+:::{.callout-note collapse="true"}
+## Why?
+The sample metadata names the K-12 laboratory strain of *E. coli*. DH5a and W3110 are other common lab strains, but they are not the one recorded for this experiment.
+:::
+
+:::::{.question}
+Use the NCBI taxonomy browser to find the taxonomy ID of *E. coli* K12 at the strain level. Which is it?
+
+::::{.choices}
+:::{.choice .correct-choice}
+83333
+:::
+
+:::{.choice}
+51145
+:::
+
+:::{.choice}
+329
+:::
+::::
+:::::
+
+:::{.callout-note collapse="true"}
+## Why?
+NCBI Taxonomy assigns a distinct ID at each rank, and `83333` is the node for *E. coli* K-12 at the strain level (the species *E. coli* itself is `562`). Searching at the right rank ensures you pull sequences for the specific strain rather than the whole species.
+:::
+
+In GEO/SRA 'runs' describe a single run of the sequencing machine and usually describe a single set of reads (sometimes paired).
+
+:::::{.question}
+How many replicates are done for each sample?
+
+::::{.choices}
+:::{.choice .correct-choice}
+1
+:::
+
+:::{.choice}
+2
+:::
+
+:::{.choice}
+3
+:::
+::::
+:::::
+
+:::{.callout-note collapse="true"}
+## Why?
+Each time point here has a single run, so there is one replicate per sample. That's unusual and statistically weak for real work, but it keeps this demonstration dataset small and quick to process.
+:::
+
+<!-- FLAG geoacc-5: source had a trailing comma in answer("SRR3144643",); dropped (cosmetic). -->
+:::::{.question}
+What is the run id for the 8h sample? (You may need to browse some of the links to find this out)
+
+::::{.choices}
+:::{.choice}
+SRR3144643
+:::
+
+:::{.choice}
+SRX1560781
+:::
+
+:::{.choice .correct-choice}
+SRR3144708
+:::
+::::
+:::::
+
+:::{.callout-note collapse="true"}
+## Why?
+Actual sequence reads live under a Run accession, which starts with `SRR`, so `SRR3144708` is what you download for the 8h sample. `SRX1560781` is an Experiment (`SRX`) accession — it describes the library, not the run of reads.
+:::
+
+:::::{.question}
+What is the run id for the 14h sample? (You may need to browse some of the links to find this out)
+
+::::{.choices}
+:::{.choice .correct-choice}
+SRR3144643
+:::
+
+:::{.choice}
+SRX1560781
+:::
+
+:::{.choice}
+SRR3144708
+:::
+::::
+:::::
+
+:::{.callout-note collapse="true"}
+## Why?
+The 14h reads are stored under Run accession `SRR3144643`. As before, the `SRX` accession names the experiment/library rather than the set of reads you actually retrieve.
+:::
+
+Now that we have identified the run accessions we are able to download the actual reads to work on them.
+
+## Downloading data with SRAtools
+
+The web page provides a download button for the data, and while for this small transcriptome with small files (relatively speaking) downloading through the browser might work, we can do this better using the `SRAtools` package on the command-line.
+
+Start up your terminal program. We can use the `SRAtools` package to retrieve data in one step. We use the `fastq-dump` command to prepare the data and download it to an uncompressed text file in fastq format. Note that often you will not want uncompressed data as raw read data can be very large. You can check the SRAtools manuals for more flexible download options [here](https://www.ncbi.nlm.nih.gov/sra/docs/sradownload/#download-sequence-data-files-usi).
+
+Download the reads for each run e.g. — with ID `SRR3144643` as follows:
+
+```
+fastq-dump SRR3144643
+```
+
+Make sure you download runs for both 8h and 14h samples. Use the run and sample name information you found earlier.
+
+:::::{.question}
+How many reads were downloaded for 14h?
+
+::::{.choices}
+:::{.choice}
+9
+:::
+
+:::{.choice .correct-choice}
+9,339,062
+:::
+
+:::{.choice}
+212,897
+:::
+::::
+:::::
+
+:::{.callout-note collapse="true"}
+## Why?
+`fastq-dump` reports how many reads ('spots') it wrote, and for the 14h run (`SRR3144643`) that total is 9,339,062. This count is a property of the run itself, so anyone downloading the same accession gets the same number.
+:::
+
+<!-- FLAG dload-2: source marks TWO answers correct=TRUE (10,691,872 and 9,339,062). 9,339,062 is the 14h count (see dload-1), so the intended 8h answer is 10,691,872. Marked 10,691,872 as the single correct choice. -->
+:::::{.question}
+How many reads were downloaded for 8h?
+
+::::{.choices}
+:::{.choice .correct-choice}
+10,691,872
+:::
+
+:::{.choice}
+9,339,062
+:::
+
+:::{.choice}
+3,144,643
+:::
+::::
+:::::
+
+:::{.callout-note collapse="true"}
+## Why?
+The 8h run (`SRR3144708`) contains 10,691,872 reads. Note that 9,339,062 is the count for the *14h* run, so it's a tempting but wrong distractor here.
+:::
+
+Now that we have the reads, we need the definitive sequences of the transcripts. This will allow us to align the reads to the transcripts, count how many reads align to each and get a measure of the abundance of each transcript in the sample.
+
+Databases like EnsemblBacteria ([https://bacteria.ensembl.org](https://bacteria.ensembl.org)) hold the resources we need. Go there and use the `Search for a genome` box to find `Escherichia coli`.
+
+:::::{.question}
+How many *E. coli* genomes are found?
+
+::::{.choices}
+:::{.choice}
+25
+:::
+
+:::{.choice .correct-choice}
+about 1,200
+:::
+
+:::{.choice}
+about 31000
+:::
+::::
+:::::
+
+:::{.callout-note collapse="true"}
+## Why?
+*E. coli* is one of the most heavily sequenced organisms, so a search returns on the order of a thousand assemblies — far more than a single reference. The exact figure grows over time as new assemblies are deposited.
+:::
+
+Use the filter to find the genomes coming from the correct strain with the taxid you found.
+
+:::::{.question}
+How many *E. coli* K12 genomes are found?
+
+::::{.choices}
+:::{.choice .correct-choice}
+about 26
+:::
+
+:::{.choice}
+about 1,200
+:::
+
+:::{.choice}
+about 31000
+:::
+::::
+:::::
+
+:::{.callout-note collapse="true"}
+## Why?
+Filtering by the K-12 strain taxon ID narrows the list from all *E. coli* assemblies down to the couple of dozen that belong to that strain. Filtering on a stable taxid is the reliable way to pick out the strain you actually want.
+:::
+
+There are so many results because numerous different sequencing projects have used this organism so there are lots of assemblies of the strains and substrains of *E. coli*. For our purposes we can select any of the assemblies but the differences may be important for your real lab work. Click the link in the `species` column of the top result (with assembly accession `gca_004802935`) to go to the page for that assembly.
+
+In the `Gene annotation` box, select the `FASTA` link in the `Download genes` section to open up a link to the files containing the transcript sequences. The sequences of the transcripts are in a folder called `cds` (for coding sequence). Open that and copy the file called `Escherichia_coli_k_12_gca_004802935.ASM480293v1.cds.all.fa.gz` to the same place you downloaded the reads to. Using drag and drop is fine, as this file should be very small.
+
+The file extension `.gz` indicates this file is compressed with `gzip`. On some systems you can uncompress it with a double click of the icon or you can do it on the command line like this
+
+```
+gunzip Escherichia_coli_k_12_gca_004802935.ASM480293v1.cds.all.fa.gz
+```
+
+## Estimating transcript counts with *kallisto*
+
+We can now perform a quantification of the transcripts using the reads. We only have one sample for each time point, which is highly unusual but is enough for demonstration purposes.
+
+We'll use the `kallisto` quantifier [https://pachterlab.github.io/kallisto/about](https://pachterlab.github.io/kallisto/about). The program works in two steps, we first make an index of our transcript sequences and then we `pseudoalign` reads to the index to work out how many reads come from each transcript.
+
+### Building the index
+
+The index needs only be built once, we can do that with this command line
+
+```
+kallisto index -i ecoli_index.idx Escherichia_coli_k_12_gca_004802935.ASM480293v1.cds.all.fa
+```
+
+which only takes a moment for this small genome. The command indicates that we want to `index` and what our index should be called with `-i`, our output index is therefore `ecoli_index.idx`. The final argument is the file of transcript sequences that we wish to use.
+
+### Quantification
+
+Now we can estimate the transcript abundances, once for each file of sample reads. We treat the file as if single-ended, though better quantification can be achieved if you have paired end info.
+
+For the 8h reads we can use this command line
+
+```
+kallisto quant -i ecoli_index.idx -o 8h -b 100 --single -l 180 -s 20 SRR3144708.fastq
+```
+
+which runs `quant` using index `-i ecoli_index.idx`, the results will be output to a folder called `8h` (`-o 8h`). One hundred bootstrap repetitions are performed (`-b 100`), single end mode is used (`--single`) and the length (`-l 180`) and SD of fragments (`-s 20`), is given.
+
+The corresponding command line for the 14h reads is as follows
+
+```
+kallisto quant -i ecoli_index.idx -o 14h -b 100 --single -l 180 -s 20 SRR3144643.fastq
+```
+
+### Examining abundances.tsv
+
+The transcript abundances are placed in the output folder inside a file called `abundances.tsv`. Check it like this (remembering to use `q` to quit `less`)
+
+```
+head 8h/abundance.tsv
+```
+
+part of which looks like this
+
+```
+target_id   length    eff_length    est_counts    tpm
+THH56748    1158      979           41            2.28274
+THH56492    933	      754           173           12.5063
+THH56493    756	      577           546           51.5789
+THH56494    1248	    1069          10            0.509891
+```
+
+We can see the target ID (the transcript name) and the estimates, resulting in the tags per million `tpm` at the end of each row. The `tpm` is our final expression estimate for the transcripts and is a value we can build into bigger exploratory analyses.
+
+## Wrap up and next steps
+
+This tutorial is focussed on using databases to find reads and quantify transcript abundances and we've done that successfully. The process of RNAseq and transcriptome analysis once we've got those reads is much more involved. Analysing the resulting transcript counts to make valid and useful biological inferences is a very different topic that takes in statistics and data visualisation. There are a great number of introductory tutorials on all aspects of expression analysis all over the web. One good starting place is with `kallisto`'s companion tool, `sleuth` which will allow you to perform differential analysis and some important QC measures. Try here [https://pachterlab.github.io/sleuth_walkthroughs/trapnell/analysis.html](https://pachterlab.github.io/sleuth_walkthroughs/trapnell/analysis.html) for a good introduction to `sleuth`.
