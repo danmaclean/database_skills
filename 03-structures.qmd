@@ -245,7 +245,7 @@ You can download a large text file like this most easily by using `wget` on the 
 wget https://raw.githubusercontent.com/danmaclean/phyreresults/main/robetta_models_89846.pdb
 ```
 
-Now we have a predicted model of our protein of interest we can align it with the model of the best hit (d3d32a1). The alignment can be done with a program called TM-align at [https://zhanglab.ccmb.med.umich.edu/TM-align/](https://zhanglab.ccmb.med.umich.edu/TM-align/). The web form here is straightforward to use. Upload the model from Robetta as protein 1 and the best hit from Phyre `dda321` as protein 2. Then hit align. In a short while your alignment should appear
+Now we have a predicted model of our protein of interest we can align it with the model of the best hit (d3d32a1). The alignment can be done with a program called TM-align at [https://zhanglab.ccmb.med.umich.edu/TM-align/](https://zhanglab.ccmb.med.umich.edu/TM-align/). The web form here is straightforward to use. Upload the model from Robetta as protein 1 and the best hit from Phyre `d3d32a1` as protein 2. Then hit align. In a short while your alignment should appear
 
 :::::{.question}
 Is the alignment a good one? Do the protein and the best hit match structures well?

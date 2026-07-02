@@ -84,7 +84,7 @@ SRP069289
 Individual samples in GEO carry `GSM` accessions, so `GSM2055958` (the 8h sample) is the right form of ID. `SRP069289` is an SRA Study accession — it names the whole sequencing project in SRA, not a single sample.
 :::
 
-<!-- FLAG taxid-1: source marks "K12f" correct; probable typo for "K12". Kept source string verbatim as the correct choice per flag-don't-fix policy. -->
+<!-- taxid-1: source marked "K12f" correct (a typo); fixed to "K12" per author decision (AUTHOR-REVIEW.md). -->
 :::::{.question}
 What *strain* of *E. coli* was used?
 
@@ -98,7 +98,7 @@ W3110
 :::
 
 :::{.choice .correct-choice}
-K12f
+K12
 :::
 ::::
 :::::

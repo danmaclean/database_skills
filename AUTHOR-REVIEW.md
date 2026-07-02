@@ -13,12 +13,12 @@ Nothing here blocks rendering — the book renders clean end-to-end. These are e
 
 ### Genuine source bugs (a fix is probably wanted)
 
-| Chapter | Location | Issue | What the agent did |
-|---|---|---|---|
-| transcriptomes | `dload-2` ("reads downloaded for 8h?") | Source marked **two** answers `correct=TRUE` (`10,691,872` **and** `9,339,062`). `9,339,062` is the 14h count. | Marked only `10,691,872` correct; left the other as a distractor. **Confirm.** |
-| transcriptomes | `taxid-1` ("what strain of E. coli?") | Correct answer is `"K12f"` — almost certainly a typo for `"K12"`. | Kept `K12f` verbatim (flag-don't-fix). **Decide: fix to `K12`?** |
-| structures | `## Aims` | Copy-paste leak from the transcriptome tutorial: "…we carry out expression estimates for the data we downloaded" — wrong for a structures tutorial. | **Corrected** to a structures-appropriate sentence (agent's call, since plainly wrong). **Confirm or reword.** |
-| structures | Visualising section prose | Phyre best hit written as `dda321` in one instruction line; it's `d3d32a1` everywhere else. | Left verbatim. **Likely a typo to fix.** |
+| Chapter | Location | Issue | What the agent did | RESPONSE |
+|---|---|---|---| --- |
+| transcriptomes | `dload-2` ("reads downloaded for 8h?") | Source marked **two** answers `correct=TRUE` (`10,691,872` **and** `9,339,062`). `9,339,062` is the 14h count. | Marked only `10,691,872` correct; left the other as a distractor. **Confirm.** | CONFIRMED OK |
+| transcriptomes | `taxid-1` ("what strain of E. coli?") | Correct answer is `"K12f"` — almost certainly a typo for `"K12"`. | Kept `K12f` verbatim (flag-don't-fix). **Decide: fix to `K12`?** | FIX TO K12 |
+| structures | `## Aims` | Copy-paste leak from the transcriptome tutorial: "…we carry out expression estimates for the data we downloaded" — wrong for a structures tutorial. | **Corrected** to a structures-appropriate sentence (agent's call, since plainly wrong). **Confirm or reword.** | CONFIRMED OK|
+| structures | Visualising section prose | Phyre best hit written as `dda321` in one instruction line; it's `d3d32a1` everywhere else. | Left verbatim. **Likely a typo to fix.** | FIX to d3d32a1 | 
 
 ### Cosmetic fixes already applied (FYI, no decision needed)
 
