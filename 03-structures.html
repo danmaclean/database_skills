@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>3&nbsp; Finding structures and structural motifs using databases – Finding and Using Biological Databases</title>
+<title>4&nbsp; Finding structures and structural motifs using databases – Finding and Using Biological Databases</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -87,7 +87,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03-structures.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Finding structures and structural motifs using databases</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03-structures.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Finding structures and structural motifs using databases</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -120,20 +120,26 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./00-primary-secondary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Primary and Secondary Databases</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./01-transcriptomes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Gene expression databases and expression analysis</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Gene expression databases and expression analysis</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02-genomes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Genomic databases and genome assembly</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Genomic databases and genome assembly</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03-structures.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Finding structures and structural motifs using databases</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Finding structures and structural motifs using databases</span></span></a>
   </div>
 </li>
     </ul>
@@ -146,11 +152,12 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#aims" id="toc-aims" class="nav-link active" data-scroll-target="#aims"><span class="header-section-number">3.1</span> Aims</a></li>
-  <li><a href="#browsing-for-structural-data-at-pdbe" id="toc-browsing-for-structural-data-at-pdbe" class="nav-link" data-scroll-target="#browsing-for-structural-data-at-pdbe"><span class="header-section-number">3.2</span> Browsing for structural data at PDBe</a></li>
-  <li><a href="#using-phyre2-for-structural-analysis" id="toc-using-phyre2-for-structural-analysis" class="nav-link" data-scroll-target="#using-phyre2-for-structural-analysis"><span class="header-section-number">3.3</span> Using Phyre2 for structural analysis</a></li>
-  <li><a href="#visualising-structural-models-of-proteins" id="toc-visualising-structural-models-of-proteins" class="nav-link" data-scroll-target="#visualising-structural-models-of-proteins"><span class="header-section-number">3.4</span> Visualising structural models of proteins</a></li>
-  <li><a href="#wrap-up" id="toc-wrap-up" class="nav-link" data-scroll-target="#wrap-up"><span class="header-section-number">3.5</span> Wrap up</a></li>
+  <li><a href="#about-this-chapter" id="toc-about-this-chapter" class="nav-link active" data-scroll-target="#about-this-chapter"><span class="header-section-number">4.1</span> About this chapter</a></li>
+  <li><a href="#aims" id="toc-aims" class="nav-link" data-scroll-target="#aims"><span class="header-section-number">4.2</span> Aims</a></li>
+  <li><a href="#browsing-for-structural-data-at-pdbe" id="toc-browsing-for-structural-data-at-pdbe" class="nav-link" data-scroll-target="#browsing-for-structural-data-at-pdbe"><span class="header-section-number">4.3</span> Browsing for structural data at PDBe</a></li>
+  <li><a href="#using-phyre2-for-structural-analysis" id="toc-using-phyre2-for-structural-analysis" class="nav-link" data-scroll-target="#using-phyre2-for-structural-analysis"><span class="header-section-number">4.4</span> Using Phyre2 for structural analysis</a></li>
+  <li><a href="#visualising-structural-models-of-proteins" id="toc-visualising-structural-models-of-proteins" class="nav-link" data-scroll-target="#visualising-structural-models-of-proteins"><span class="header-section-number">4.5</span> Visualising structural models of proteins</a></li>
+  <li><a href="#wrap-up" id="toc-wrap-up" class="nav-link" data-scroll-target="#wrap-up"><span class="header-section-number">4.6</span> Wrap up</a></li>
   </ul>
 </nav>
     </div>
@@ -159,7 +166,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Finding structures and structural motifs using databases</span></h1>
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Finding structures and structural motifs using databases</span></h1>
 </div>
 
 
@@ -176,12 +183,28 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="aims" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="aims"><span class="header-section-number">3.1</span> Aims</h2>
+<section id="about-this-chapter" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="about-this-chapter"><span class="header-section-number">4.1</span> About this chapter</h2>
+<ol type="1">
+<li>Questions
+<ul>
+<li>What is held in structural databases?</li>
+<li>How can I find the structure of my protein?</li>
+<li>Are there any solved structures like my protein?</li>
+</ul></li>
+<li>Objectives
+<ul>
+<li>Understand what is held in a structural database</li>
+<li>Know how to get an approximate structure for a protein of interest</li>
+</ul></li>
+</ol>
+</section>
+<section id="aims" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="aims"><span class="header-section-number">4.2</span> Aims</h2>
 <p>The aim of this tutorial is to examine how we can use public tools and databases to retrieve structures and predict the structures of our own protein of interest. We shall then work through an example in which we search for a known structure that fits a protein of interest and predict the structure of a protein of our own. <!-- FLAG: source said "we carry out expression estimates for the data we downloaded" — a copy-paste leak from the transcriptome tutorial, wrong for a structures tutorial. Corrected here; see FLAGS-structures.md. --></p>
 </section>
-<section id="browsing-for-structural-data-at-pdbe" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="browsing-for-structural-data-at-pdbe"><span class="header-section-number">3.2</span> Browsing for structural data at PDBe</h2>
+<section id="browsing-for-structural-data-at-pdbe" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="browsing-for-structural-data-at-pdbe"><span class="header-section-number">4.3</span> Browsing for structural data at PDBe</h2>
 <p>Protein structure databases contain data that describes the physical 3D structure of proteins that has (usually) been experimentally determined. The central archive is the Protein Data Bank and it informs the content of other specialised databases. The structural data format (.pdb) that is used is complicated and not as widely used by life scientists as the sequence formats like FASTA.</p>
 <p>The best way to search for structural data is to use the specific tools provided at PDBe <a href="https://www.ebi.ac.uk/pdbe">https://www.ebi.ac.uk/pdbe/</a>. A typical analysis will start with a query sequence of interest derived from earlier experiments.</p>
 <p>We’ll use a sample input protein and work through finding a structure that fits it closely. The protein is APG8A, from Arabidopsis, a Ubiquitin-like superfamily protein.</p>
@@ -399,8 +422,8 @@ Why?
 </div>
 </div>
 </section>
-<section id="using-phyre2-for-structural-analysis" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="using-phyre2-for-structural-analysis"><span class="header-section-number">3.3</span> Using Phyre2 for structural analysis</h2>
+<section id="using-phyre2-for-structural-analysis" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="using-phyre2-for-structural-analysis"><span class="header-section-number">4.4</span> Using Phyre2 for structural analysis</h2>
 <p>The Phyre2 program predicts 3 dimensional structures using homology modelling. In this approach the protein sequence of interest is used as a basis to construct a hypothetical structure model based on the atoms of the protein. Structures in that model are used to inform and improve the sequence level alignment and allow for more distant matches and matches based on the physical structure.</p>
 <p>Here is the protein sequence again.</p>
 <pre><code>&gt;protein
@@ -480,8 +503,8 @@ Why?
 </div>
 <p>Download the 3D model for the best hit (d3d32a1) in PDB format from this page.</p>
 </section>
-<section id="visualising-structural-models-of-proteins" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="visualising-structural-models-of-proteins"><span class="header-section-number">3.4</span> Visualising structural models of proteins</h2>
+<section id="visualising-structural-models-of-proteins" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="visualising-structural-models-of-proteins"><span class="header-section-number">4.5</span> Visualising structural models of proteins</h2>
 <p>Along the way we’ve seen numerous 3D renderings of proteins and secondary structure alignments, but we haven’t seen a 3D alignment of the hits and our query protein fragment. To achieve that we need a PDB file of the hit from the database (which we downloaded in the last step). We also need a PDB file from our original protein of interest, which we don’t have. We can use an <em>ab initio</em> protein modeller to do that. These are computationally quite intensive so take a long time and require sign up, as an example there’s one at <a href="https://robetta.bakerlab.org/">https://robetta.bakerlab.org/</a>. Go there and sign up.</p>
 <p>When you’ve signed up and are on the home page, you can choose the <code>Submit</code> option from the <code>Structure Prediction</code> menu to submit a sequence for structural prediction. On that page you can see the upload boxes and some options for the modelling process. When you press the <code>Submit</code> button at the bottom, the sequence is added to the processing queue. It can take a long time to work through the sequence and build a predicted model, several hours in most cases! So don’t actually run the sequence this time! Once the modelling is run the program returns a link and the PDB file to your email address. Here is a pre-computed model file for our protein of interest, <a href="https://raw.githubusercontent.com/danmaclean/phyreresults/main/robetta_models_89846.pdb">https://raw.githubusercontent.com/danmaclean/phyreresults/main/robetta_models_89846.pdb</a></p>
 <p>You can download a large text file like this most easily by using <code>wget</code> on the command-line, like this</p>
@@ -587,8 +610,8 @@ Why?
 </div>
 </div>
 </section>
-<section id="wrap-up" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="wrap-up"><span class="header-section-number">3.5</span> Wrap up</h2>
+<section id="wrap-up" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="wrap-up"><span class="header-section-number">4.6</span> Wrap up</h2>
 <p>In this tutorial we’ve investigated a pipeline for finding a potential structure of a protein sequence of interest that we have no structural information about. We used sequence similarity and homology modeling to find similar known structures. We then predicted a structure <em>ab initio</em> for our sequence of interest and used that to align in 3D space with our best match protein. In this way we have been able to infer the structure of our protein of interest.</p>
 
 
@@ -1018,7 +1041,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./02-genomes.html" class="pagination-link" aria-label="Genomic databases and genome assembly">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Genomic databases and genome assembly</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Genomic databases and genome assembly</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

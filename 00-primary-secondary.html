@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Dan MacLean">
-<meta name="dcterms.date" content="2026-07-01">
 
-<title>Finding and Using Biological Databases</title>
+<title>1&nbsp; Primary and Secondary Databases – Finding and Using Biological Databases</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./00-primary-secondary.html" rel="next">
+<link href="./01-transcriptomes.html" rel="next">
+<link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -89,7 +88,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Welcome</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00-primary-secondary.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Primary and Secondary Databases</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -116,13 +115,13 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Welcome</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./00-primary-secondary.html" class="sidebar-item-text sidebar-link">
+  <a href="./00-primary-secondary.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Primary and Secondary Databases</span></span></a>
   </div>
 </li>
@@ -154,14 +153,27 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#welcome" id="toc-welcome" class="nav-link active" data-scroll-target="#welcome">Welcome</a>
+  <li><a href="#about-this-chapter" id="toc-about-this-chapter" class="nav-link active" data-scroll-target="#about-this-chapter"><span class="header-section-number">1.1</span> About this chapter</a></li>
+  <li><a href="#primary-databases" id="toc-primary-databases" class="nav-link" data-scroll-target="#primary-databases"><span class="header-section-number">1.2</span> Primary databases</a></li>
+  <li><a href="#examples-of-primary-databases" id="toc-examples-of-primary-databases" class="nav-link" data-scroll-target="#examples-of-primary-databases"><span class="header-section-number">1.3</span> Examples of primary databases</a>
   <ul class="collapse">
-  <li><a href="#how-to-use-these-tutorials" id="toc-how-to-use-these-tutorials" class="nav-link" data-scroll-target="#how-to-use-these-tutorials">How to use these tutorials</a></li>
-  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">Prerequisites</a>
-  <ul class="collapse">
-  <li><a href="#what-you-should-already-know" id="toc-what-you-should-already-know" class="nav-link" data-scroll-target="#what-you-should-already-know">What you should already know</a></li>
-  <li><a href="#software" id="toc-software" class="nav-link" data-scroll-target="#software">Software</a></li>
+  <li><a href="#ena" id="toc-ena" class="nav-link" data-scroll-target="#ena"><span class="header-section-number">1.3.1</span> ENA</a></li>
+  <li><a href="#genbank" id="toc-genbank" class="nav-link" data-scroll-target="#genbank"><span class="header-section-number">1.3.2</span> GenBank</a></li>
+  <li><a href="#geo" id="toc-geo" class="nav-link" data-scroll-target="#geo"><span class="header-section-number">1.3.3</span> GEO</a></li>
+  <li><a href="#biostudies" id="toc-biostudies" class="nav-link" data-scroll-target="#biostudies"><span class="header-section-number">1.3.4</span> BioStudies</a></li>
+  <li><a href="#protein-data-bank" id="toc-protein-data-bank" class="nav-link" data-scroll-target="#protein-data-bank"><span class="header-section-number">1.3.5</span> Protein Data Bank</a></li>
   </ul></li>
+  <li><a href="#secondary-databases" id="toc-secondary-databases" class="nav-link" data-scroll-target="#secondary-databases"><span class="header-section-number">1.4</span> Secondary databases</a></li>
+  <li><a href="#examples-of-secondary-databases" id="toc-examples-of-secondary-databases" class="nav-link" data-scroll-target="#examples-of-secondary-databases"><span class="header-section-number">1.5</span> Examples of secondary databases</a>
+  <ul class="collapse">
+  <li><a href="#ensembl" id="toc-ensembl" class="nav-link" data-scroll-target="#ensembl"><span class="header-section-number">1.5.1</span> Ensembl</a></li>
+  <li><a href="#uniprotkb" id="toc-uniprotkb" class="nav-link" data-scroll-target="#uniprotkb"><span class="header-section-number">1.5.2</span> UniProtKB</a></li>
+  </ul></li>
+  <li><a href="#metadata" id="toc-metadata" class="nav-link" data-scroll-target="#metadata"><span class="header-section-number">1.6</span> Metadata</a>
+  <ul class="collapse">
+  <li><a href="#minimum-information-standards" id="toc-minimum-information-standards" class="nav-link" data-scroll-target="#minimum-information-standards"><span class="header-section-number">1.6.1</span> Minimum Information Standards</a></li>
+  <li><a href="#controlled-vocabularies" id="toc-controlled-vocabularies" class="nav-link" data-scroll-target="#controlled-vocabularies"><span class="header-section-number">1.6.2</span> Controlled Vocabularies</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">1.6.3</span> Conclusion</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -171,26 +183,14 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Finding and Using Biological Databases</h1>
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Primary and Secondary Databases</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Dan MacLean </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">July 1, 2026</p>
-    </div>
-  </div>
   
     
   </div>
@@ -200,44 +200,115 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="welcome" class="level1 unnumbered">
-<h1 class="unnumbered">Welcome</h1>
-<p>Modern biology runs on public databases. Before you can analyse a genome, quantify a transcriptome, or reason about a protein’s structure, you have to <em>find the data</em> — and finding it means knowing your way around the handful of big public archives that the whole field depends on: the NCBI/GEO/SRA family, the European databases at EMBL-EBI (ENA, Ensembl, PDBe), and the structural prediction and comparison tools that sit alongside them.</p>
-<p>This short book is a set of <strong>hands-on, self-checking tutorials</strong> that walk you through real database tasks and let you confirm you got the right answer as you go. Each chapter takes a genuine biological question, points you at the right database, and has you navigate it for yourself — retrieving accessions, downloading data, and interpreting what you find. Little multiple-choice checkpoints along the way let you make sure you’re on track before moving on.</p>
-<p>There are three tutorials:</p>
+<section id="about-this-chapter" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="about-this-chapter"><span class="header-section-number">1.1</span> About this chapter</h2>
 <ol type="1">
-<li><strong>Gene expression databases</strong> — using GEO and the SRA to find and download RNA-seq reads, then quantifying transcript abundance.</li>
-<li><strong>Genomic databases</strong> — cross-referencing NCBI and the ENA to identify a species, find its assemblies, and download raw reads for assembly and annotation.</li>
-<li><strong>Structural databases</strong> — searching PDBe for known protein structures and using structure-prediction tools to model a protein of your own.</li>
+<li>Questions:</li>
 </ol>
-<section id="how-to-use-these-tutorials" class="level2">
-<h2 class="anchored" data-anchor-id="how-to-use-these-tutorials">How to use these tutorials</h2>
-<p>Work through each chapter with the relevant database open in another browser tab, and actually do the steps — the whole point is to build the muscle memory of navigating these resources yourself. When you reach a question, have a go before you reveal the answer. Where a question has a <strong>“Why?”</strong> note attached, open it once you’ve answered: it explains <em>why</em> the answer is what it is, which is usually more useful than the answer itself.</p>
-<p>The book itself needs nothing installed — the tutorials and their self-check questions run entirely in your browser, and every question is answerable from what the databases show you. The tutorials <em>do</em>, however, walk through command-line tools (for downloading and processing data) that you’d run on your own machine in a real analysis. If you want to follow those hands-on steps for yourself rather than just read them, see the prerequisites below.</p>
-</section>
-<section id="prerequisites" class="level2">
-<h2 class="anchored" data-anchor-id="prerequisites">Prerequisites</h2>
-<section id="what-you-should-already-know" class="level3">
-<h3 class="anchored" data-anchor-id="what-you-should-already-know">What you should already know</h3>
-<p>The hands-on command-line parts assume you’re already comfortable using command-line tools.</p>
-</section>
-<section id="software" class="level3">
-<h3 class="anchored" data-anchor-id="software">Software</h3>
-<p>You have two options for running the command-line tools.</p>
-<p>The easiest is the pre-built Google Colab document, which has everything ready to go: <a href="https://colab.research.google.com/drive/1LJffmZ4yuzEjvtWp6Sj5tSibyTKJb_b1?usp=sharing">Link to Google Colab</a>. You’ll need a Google account to use it — if you’d rather not use a personal one, you can sign up with your <code>@tsl.ac.uk</code> address.</p>
-<p>Alternatively, you can install the tools on your own machine. You’ll need:</p>
 <ul>
-<li><a href="https://github.com/ncbi/sra-tools/wiki/01.-Downloading-SRA-Toolkit">SRA Toolkit</a></li>
-<li><a href="https://github.com/ablab/spades">SPAdes</a></li>
-<li><a href="https://github.com/tseemann/prokka">prokka</a></li>
-<li><a href="https://busco.ezlab.org/busco_userguide.html">BUSCO</a></li>
-<li><a href="https://pachterlab.github.io/kallisto/download">kallisto</a></li>
+<li>What is the difference between a primary and secondary database?</li>
+<li>What are some examples of primary and secondary databases?</li>
+<li>How can I interact with them to find what I need?</li>
+<li>What is metadata?</li>
 </ul>
-<p>Most of these can be installed with <a href="https://bioconda.github.io/">bioconda</a>.</p>
-<p>Let’s get started.</p>
-
-
+<ol start="2" type="1">
+<li>Objectives:</li>
+</ol>
+<ul>
+<li>Understand the role of a primary and secondary database</li>
+<li>Know where to access and how to find training resources provided by the databases</li>
+<li>Understand the importance of clear structured metadata</li>
+</ul>
+<ol start="3" type="1">
+<li>Keypoints:</li>
+</ol>
+<ul>
+<li>Primary databases are repositories of experimental data</li>
+<li>Secondary databases are repositories of results based on the primary data</li>
+<li>Metadata is what makes data findable and useable</li>
+</ul>
 </section>
+<section id="primary-databases" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="primary-databases"><span class="header-section-number">1.2</span> Primary databases</h2>
+<p>In many fields, databases can be categorized as either primary or secondary. The main difference is actually quite simple, <em>Primary</em> databases hold data that come from experiments or direct data gathering exercises and their contents are fixed. A primary database is often called an archive or a database of scientific record.</p>
+</section>
+<section id="examples-of-primary-databases" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="examples-of-primary-databases"><span class="header-section-number">1.3</span> Examples of primary databases</h2>
+<section id="ena" class="level3" data-number="1.3.1">
+<h3 data-number="1.3.1" class="anchored" data-anchor-id="ena"><span class="header-section-number">1.3.1</span> ENA</h3>
+<p><a href="https://www.ebi.ac.uk/ena/browser/home">ENA - https://www.ebi.ac.uk/ena/browser/home</a></p>
+<p>The European Nucleotide Archive (ENA) is a comprehensive record of the world’s nucleotide sequencing information, covering raw sequencing data and sequence assemblies. Access to it is provided through a genome browser, search forms and tools, and an API - an interface that allows you to write programs that extract data. Like many databases, user training is a very important part of the mission of the database, so they provide a very comprehensive manual and how to’s at <a href="https://ena-docs.readthedocs.io/en/latest/" class="uri">https://ena-docs.readthedocs.io/en/latest/</a></p>
+</section>
+<section id="genbank" class="level3" data-number="1.3.2">
+<h3 data-number="1.3.2" class="anchored" data-anchor-id="genbank"><span class="header-section-number">1.3.2</span> GenBank</h3>
+<p><a href="https://www.ncbi.nlm.nih.gov/genbank/">GenBank - https://www.ncbi.nlm.nih.gov/genbank</a></p>
+<p>GenBank is another distinct genetic sequence database with annotated sequences and it aims to hold <em>all</em> publicly available DNA sequences. Access to it is provided by the Entrez system which can find identifiers (ID’s) and BLAST which can search sequence similarity. There are also FTP (bulk download) and programatic acess via the NCBI e-utilities system. The provided training materials for GenBank are very dense, and take some reading <a href="https://www.ncbi.nlm.nih.gov/guide/training-tutorials/" class="uri">https://www.ncbi.nlm.nih.gov/guide/training-tutorials/</a>. The quick start guides are often a better place to start <a href="https://www.ncbi.nlm.nih.gov/nuccore/" class="uri">https://www.ncbi.nlm.nih.gov/nuccore/</a></p>
+</section>
+<section id="geo" class="level3" data-number="1.3.3">
+<h3 data-number="1.3.3" class="anchored" data-anchor-id="geo"><span class="header-section-number">1.3.3</span> GEO</h3>
+<p><a href="https://www.ncbi.nlm.nih.gov/geo/">GEO - https://www.ncbi.nlm.nih.gov/geo/</a></p>
+<p>The Gene Expression Omnibus (GEO) is a functional genomics repository of microarray and RNAseq data that accepts raw microarray, sequence and curated gene expression profiles. The normal web, FTP and programmatic access routes are provided and help is provided best through the FAQ <a href="https://www.ncbi.nlm.nih.gov/geo/info/faq.html" class="uri">https://www.ncbi.nlm.nih.gov/geo/info/faq.html</a>.</p>
+</section>
+<section id="biostudies" class="level3" data-number="1.3.4">
+<h3 data-number="1.3.4" class="anchored" data-anchor-id="biostudies"><span class="header-section-number">1.3.4</span> BioStudies</h3>
+<p><a href="https://www.ebi.ac.uk/biostudies/about">BioStudies - https://www.ebi.ac.uk/biostudies/about</a></p>
+<p>BioStudies is a relatively new database that consolidates some other databases. BioStudies database holds descriptions of biological studies and links to data from these studies in other databases. Here you can find transcriptome data (from ArrayExpress), literature data (from PubMedCentral), image data (from BioImages) and more. The help describes searching <a href="https://www.ebi.ac.uk/biostudies/help" class="uri">https://www.ebi.ac.uk/biostudies/help</a> and again this database provides a web search interface, FTP and Aspera for bulk download and an API for programmatic access.</p>
+</section>
+<section id="protein-data-bank" class="level3" data-number="1.3.5">
+<h3 data-number="1.3.5" class="anchored" data-anchor-id="protein-data-bank"><span class="header-section-number">1.3.5</span> Protein Data Bank</h3>
+<p><a href="https://www.ebi.ac.uk/pdbe/node/1">Protein Data Bank https://www.ebi.ac.uk/pdbe/node/1</a></p>
+<p>PDBe aims to provide a resource of high quality macromolecular structures with integration of function, taxonomy and sequence. The databank provides excellent tutorials at <a href="https://www.ebi.ac.uk/pdbe/training/tutorials" class="uri">https://www.ebi.ac.uk/pdbe/training/tutorials</a> in particular the course at (https://www.ebi.ac.uk/training-beta/online/courses/biomacromolecular-structures)[https://www.ebi.ac.uk/training-beta/online/courses/biomacromolecular-structures] and the YouTube channel <a href="https://www.youtube.com/user/ProteinDataBank" class="uri">https://www.youtube.com/user/ProteinDataBank</a></p>
+</section>
+</section>
+<section id="secondary-databases" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="secondary-databases"><span class="header-section-number">1.4</span> Secondary databases</h2>
+<p>Secondary databases contain the results of analyses, often using the contents of primary databases. They will typically use information and raw data from various sources to create a new resource of information. Often highly curated, they can employ combinations of tools and analyses to present a synthesis of lower data types. These are the sort of databases molecular biologists are most used to using and many provide derived information of varying degrees of confidence about objects within the primary sequences, things like genes in genomes.</p>
+</section>
+<section id="examples-of-secondary-databases" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="examples-of-secondary-databases"><span class="header-section-number">1.5</span> Examples of secondary databases</h2>
+<section id="ensembl" class="level3" data-number="1.5.1">
+<h3 data-number="1.5.1" class="anchored" data-anchor-id="ensembl"><span class="header-section-number">1.5.1</span> Ensembl</h3>
+<p><a href="http://www.ensembl.org/index.html" class="uri">http://www.ensembl.org/index.html</a></p>
+<p>Ensembl is a genome browser based database that contains information on comparative genomics, sequence variation, transcriptional regulation alongside annotated genes. While <a href="ensembl.org">ensembl.org</a> is focussed on vertebrates, there are sister databases for fungi, plants and bacteria. The help files are large and have many video lessons <a href="http://www.ensembl.org/info/website/tutorials/index.html" class="uri">http://www.ensembl.org/info/website/tutorials/index.html</a>. The BioMart tool in particular is very useful for medium scale retrieval <a href="http://www.ensembl.org/Multi/Help/Movie?db=core;id=189">BioMart</a>. The APIs provided can make whole genome and comparitive genomics analysis very streamlined.</p>
+</section>
+<section id="uniprotkb" class="level3" data-number="1.5.2">
+<h3 data-number="1.5.2" class="anchored" data-anchor-id="uniprotkb"><span class="header-section-number">1.5.2</span> UniProtKB</h3>
+<p><a href="https://www.uniprot.org/help/uniprotkb" class="uri">https://www.uniprot.org/help/uniprotkb</a></p>
+<p>UniProt Knowledgebase is a database of functional information on proteins with a focus on accurate and consistent annotations. The database is divided into two parts, one with manually-curated records with information from literature and curator analyses (Swiss-Prot), the other with computationally-analysed only records that are yet to be examined by a human (TrEMBL). A YouTube channel of introductory videos is provided <a href="https://www.youtube.com/channel/UCkCR5RJZCZZoVTQzTYY92aw" class="uri">https://www.youtube.com/channel/UCkCR5RJZCZZoVTQzTYY92aw</a> for high level information. A large selection of on-demand training is also available through EBI Training Portal, e.g <a href="https://www.ebi.ac.uk/training/events/guide-uniprot-students/" class="uri">https://www.ebi.ac.uk/training/events/guide-uniprot-students/</a></p>
+</section>
+</section>
+<section id="metadata" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="metadata"><span class="header-section-number">1.6</span> Metadata</h2>
+<p>Data, especially raw data is absolutely useless on its own. It always need some contextual information to allow us to make use of it. This contextual data is called <code>metadata</code> - data about the data. For example genome sequencing data would need information about the organism sequenced, the machine used to sequence, the tissue type and much more. Anything that would be useful needs to be stored along with the data. Without metadata it would not possible to find data and select the correct samples for a given analysis of it.</p>
+<p>In order for metadata to be useful we need to capture the same metadata for all data samples. This can mean not only standardising the questions we ask of, but also the words we allow to be used in answering the questions. This can seem a bit restrictive at first, but is actually essential. Consider two labs working on NLR proteins, one group is in the habit of calling them <code>NBS-LRR</code> proteins, the other <code>NLR</code>. These two terms would be completely different to a computer and anyone within the field not yet aware of all the jargon. Some searches and analyses and computer programs would completely fail to link these up.</p>
+<p>As a result there are a wide range of accepted international standards on the metadata and this is why databases require users to annotate their data according to these standard. The standards themselves are constantly developing as new technologies and tools emerge, agreeing on data standards is an important and valuable job within research.</p>
+<section id="minimum-information-standards" class="level3" data-number="1.6.1">
+<h3 data-number="1.6.1" class="anchored" data-anchor-id="minimum-information-standards"><span class="header-section-number">1.6.1</span> Minimum Information Standards</h3>
+<p>Many data types have a ‘minimum information standard’, a set of guidelines for reporting data on them. These ensure that the data of a certain type are all reported on in the same consistent way. Microarrays (MIAME), RNASeq (MINSEQE), and proteomics have data standards specific to them. More are listed at <a href="https://fairsharing.org/collection/MIBBI">FAIRSHARE</a>.</p>
+</section>
+<section id="controlled-vocabularies" class="level3" data-number="1.6.2">
+<h3 data-number="1.6.2" class="anchored" data-anchor-id="controlled-vocabularies"><span class="header-section-number">1.6.2</span> Controlled Vocabularies</h3>
+<p>To maintain a consistent set of terms for describing biological concepts and objects, we use controlled vocabularies, taxonomies and ontologies, among others. Controlled vocabularies restrict the words a human may use to describe something, a list of countries on a website would be an example of this. There are other ways to structure the controlled vocabulary. Taxonomies are ways of classifying things, often hierarchically from a more generic to a more specific group. This structure can add flexibility over the simple list, the biological taxonomy is an example of this. Ontologies represent the background knowledge of a domain, the objects are represented as terms and links between them are created to represent the relationships, such that we can analyse the ontology. The typical example is the Gene Ontology, which you can learn more about here <a href="https://www.ebi.ac.uk/training/online/course/goa-and-quickgo-quick-tour" class="uri">https://www.ebi.ac.uk/training/online/course/goa-and-quickgo-quick-tour</a></p>
+</section>
+<section id="conclusion" class="level3" data-number="1.6.3">
+<h3 data-number="1.6.3" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">1.6.3</span> Conclusion</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<pre><code>* Databases are important stores of data for the scientific record
+* Databases enable new analyses. 
+* The metadata used to describe the data in databases is what makes the data useful.</code></pre>
+</div>
+</div>
+
+
 </section>
 </section>
 
@@ -664,10 +735,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link" aria-label="Welcome">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Welcome</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./00-primary-secondary.html" class="pagination-link" aria-label="Primary and Secondary Databases">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Primary and Secondary Databases</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./01-transcriptomes.html" class="pagination-link" aria-label="Gene expression databases and expression analysis">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Gene expression databases and expression analysis</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

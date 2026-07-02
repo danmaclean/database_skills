@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>2&nbsp; Genomic databases and genome assembly – Finding and Using Biological Databases</title>
+<title>3&nbsp; Genomic databases and genome assembly – Finding and Using Biological Databases</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -88,7 +88,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./02-genomes.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Genomic databases and genome assembly</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./02-genomes.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Genomic databases and genome assembly</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -121,20 +121,26 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./00-primary-secondary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Primary and Secondary Databases</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./01-transcriptomes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Gene expression databases and expression analysis</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Gene expression databases and expression analysis</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02-genomes.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Genomic databases and genome assembly</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Genomic databases and genome assembly</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03-structures.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Finding structures and structural motifs using databases</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Finding structures and structural motifs using databases</span></span></a>
   </div>
 </li>
     </ul>
@@ -147,14 +153,15 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#aims" id="toc-aims" class="nav-link active" data-scroll-target="#aims"><span class="header-section-number">2.1</span> Aims</a></li>
-  <li><a href="#glossary" id="toc-glossary" class="nav-link" data-scroll-target="#glossary"><span class="header-section-number">2.2</span> Glossary</a></li>
-  <li><a href="#browsing-for-information" id="toc-browsing-for-information" class="nav-link" data-scroll-target="#browsing-for-information"><span class="header-section-number">2.3</span> Browsing for information</a></li>
-  <li><a href="#downloading-data-with-sratools" id="toc-downloading-data-with-sratools" class="nav-link" data-scroll-target="#downloading-data-with-sratools"><span class="header-section-number">2.4</span> Downloading data with SRAtools</a></li>
-  <li><a href="#assembling-the-reads-with-spades" id="toc-assembling-the-reads-with-spades" class="nav-link" data-scroll-target="#assembling-the-reads-with-spades"><span class="header-section-number">2.5</span> Assembling the reads with SPAdes</a></li>
-  <li><a href="#annotation-of-scaffolds-with-prokka" id="toc-annotation-of-scaffolds-with-prokka" class="nav-link" data-scroll-target="#annotation-of-scaffolds-with-prokka"><span class="header-section-number">2.6</span> Annotation of scaffolds with prokka</a></li>
-  <li><a href="#assessing-the-annotation-with-busco" id="toc-assessing-the-annotation-with-busco" class="nav-link" data-scroll-target="#assessing-the-annotation-with-busco"><span class="header-section-number">2.7</span> Assessing the annotation with BUSCO</a></li>
-  <li><a href="#wrap-up" id="toc-wrap-up" class="nav-link" data-scroll-target="#wrap-up"><span class="header-section-number">2.8</span> Wrap up</a></li>
+  <li><a href="#about-this-chapter" id="toc-about-this-chapter" class="nav-link active" data-scroll-target="#about-this-chapter"><span class="header-section-number">3.1</span> About this chapter</a></li>
+  <li><a href="#aims" id="toc-aims" class="nav-link" data-scroll-target="#aims"><span class="header-section-number">3.2</span> Aims</a></li>
+  <li><a href="#glossary" id="toc-glossary" class="nav-link" data-scroll-target="#glossary"><span class="header-section-number">3.3</span> Glossary</a></li>
+  <li><a href="#browsing-for-information" id="toc-browsing-for-information" class="nav-link" data-scroll-target="#browsing-for-information"><span class="header-section-number">3.4</span> Browsing for information</a></li>
+  <li><a href="#downloading-data-with-sratools" id="toc-downloading-data-with-sratools" class="nav-link" data-scroll-target="#downloading-data-with-sratools"><span class="header-section-number">3.5</span> Downloading data with SRAtools</a></li>
+  <li><a href="#assembling-the-reads-with-spades" id="toc-assembling-the-reads-with-spades" class="nav-link" data-scroll-target="#assembling-the-reads-with-spades"><span class="header-section-number">3.6</span> Assembling the reads with SPAdes</a></li>
+  <li><a href="#annotation-of-scaffolds-with-prokka" id="toc-annotation-of-scaffolds-with-prokka" class="nav-link" data-scroll-target="#annotation-of-scaffolds-with-prokka"><span class="header-section-number">3.7</span> Annotation of scaffolds with prokka</a></li>
+  <li><a href="#assessing-the-annotation-with-busco" id="toc-assessing-the-annotation-with-busco" class="nav-link" data-scroll-target="#assessing-the-annotation-with-busco"><span class="header-section-number">3.8</span> Assessing the annotation with BUSCO</a></li>
+  <li><a href="#wrap-up" id="toc-wrap-up" class="nav-link" data-scroll-target="#wrap-up"><span class="header-section-number">3.9</span> Wrap up</a></li>
   </ul>
 </nav>
     </div>
@@ -163,7 +170,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Genomic databases and genome assembly</span></h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Genomic databases and genome assembly</span></h1>
 </div>
 
 
@@ -180,13 +187,29 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="aims" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="aims"><span class="header-section-number">2.1</span> Aims</h2>
+<section id="about-this-chapter" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="about-this-chapter"><span class="header-section-number">3.1</span> About this chapter</h2>
+<ol type="1">
+<li>Questions
+<ul>
+<li>How can I use the ENA and NCBI to download sequence reads?</li>
+<li>What is the overall pipeline for assembling genomic DNA reads?</li>
+<li>How can I annotate an assembled prokaryotic genome?</li>
+</ul></li>
+<li>Objectives
+<ul>
+<li>Download some reads identified in ENA using efficient tools</li>
+<li>Run the tools needed to build a first draft genome assembly</li>
+</ul></li>
+</ol>
+</section>
+<section id="aims" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="aims"><span class="header-section-number">3.2</span> Aims</h2>
 <p>The aim of this tutorial is to examine how we can use public genomics databases, cross reference between them and download data for our own analyses. We shall work through an example in which we seek and retrieve data for an interesting species and learn what tools we have for downloading and processing data.</p>
 <p>We will then go on to assemble and annotate a genome assembly with a basic pipeline.</p>
 </section>
-<section id="glossary" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="glossary"><span class="header-section-number">2.2</span> Glossary</h2>
+<section id="glossary" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="glossary"><span class="header-section-number">3.3</span> Glossary</h2>
 <ul>
 <li><p><strong>Sequence assembly</strong>: process of aligning and merging fragments of sequences to reconstruct longer sequences called contiguous sequences (a.k.a ‘contigs’).</p></li>
 <li><p><strong>Contigs</strong>: a contiguous sequences generated during sequence assembly.</p></li>
@@ -195,8 +218,8 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p>NB: the terms ‘contigs’ and ‘scaffolds’ are often used interchangeably, however scaffolds contain gaps while contigs do not.</p>
 </section>
-<section id="browsing-for-information" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="browsing-for-information"><span class="header-section-number">2.3</span> Browsing for information</h2>
+<section id="browsing-for-information" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="browsing-for-information"><span class="header-section-number">3.4</span> Browsing for information</h2>
 <p>Let’s use a combination of the GenBank/NCBI databases and the ENA to find out information and data for <em>Campylobacter concisus</em> <a href="https://en.wikipedia.org/wiki/Campylobacter_concisus">https://en.wikipedia.org/wiki/Campylobacter_concisus</a></p>
 <p>We’ll first make sure we know exactly which organism we are talking about and learn how the databases identify species. Each taxon known to science has a unique ID number at the NCBI Taxonomy Database <a href="https://www.ncbi.nlm.nih.gov/taxonomy">https://www.ncbi.nlm.nih.gov/taxonomy</a>. This unique ID number is the “taxonomic identifier’ (a.k.a ‘taxon ID’, ‘tax ID’ or ‘taxid’).</p>
 <p>Use the NCBI Taxonomy Browser to find the taxon ID for <em>C. concisus</em></p>
@@ -413,8 +436,8 @@ Why?
 </div>
 </div>
 </section>
-<section id="downloading-data-with-sratools" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="downloading-data-with-sratools"><span class="header-section-number">2.4</span> Downloading data with SRAtools</h2>
+<section id="downloading-data-with-sratools" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="downloading-data-with-sratools"><span class="header-section-number">3.5</span> Downloading data with SRAtools</h2>
 <p>The web page provides a download button for the data, and while for this small genome with small files (relatively speaking) downloading through the browser might work, we can do this better using the <code>SRAtools</code> package on the command-line. The <code>SRAtools</code> helps downloading data from the Sequence Nucleotide Archive, a primary database like the ENA.</p>
 <p>Start up your terminal program. We can use the <code>SRAtools</code> package to retrieve data in one steps. We use the <code>fastqdump</code> command to prepare the data and download it to an uncompressed text file in fastq format. Note that often you will not want uncompressed data as raw read data can be very large. You can check the SRAtools manuals for more flexible download options <a href="https://www.ncbi.nlm.nih.gov/sra/docs/sradownload/#download-sequence-data-files-usi">here</a></p>
 <p>Download the reads for just one run - with ID <code>SRR4434292</code> as follows:</p>
@@ -522,8 +545,8 @@ Why?
 </div>
 </div>
 </section>
-<section id="assembling-the-reads-with-spades" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="assembling-the-reads-with-spades"><span class="header-section-number">2.5</span> Assembling the reads with SPAdes</h2>
+<section id="assembling-the-reads-with-spades" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="assembling-the-reads-with-spades"><span class="header-section-number">3.6</span> Assembling the reads with SPAdes</h2>
 <p>We can now perform an assembly of the reads, just to finish our pipeline off. The attempt here is just for completeness, we won’t get a good assembly because we’re using a restricted set of reads and a small computer.</p>
 <p>We’ll use the <code>SPAdes</code> assembler <a href="https://github.com/ablab/spades">https://github.com/ablab/spades</a>, which will run with a simple command line like this:</p>
 <pre><code>spades.py --only-assembler --12 SRR4434292.fastq -o test_assembly</code></pre>
@@ -565,8 +588,8 @@ Why?
 </div>
 </div>
 </section>
-<section id="annotation-of-scaffolds-with-prokka" class="level2" data-number="2.6">
-<h2 data-number="2.6" class="anchored" data-anchor-id="annotation-of-scaffolds-with-prokka"><span class="header-section-number">2.6</span> Annotation of scaffolds with prokka</h2>
+<section id="annotation-of-scaffolds-with-prokka" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="annotation-of-scaffolds-with-prokka"><span class="header-section-number">3.7</span> Annotation of scaffolds with prokka</h2>
 <p>Once we have a genome assembly, we will want to know what the genes in it are. There are numerous pipelines we can use to do this, certainly for prokaryotes like our <em>C. concisus</em> test here. One good one is <code>prokka</code> <a href="https://github.com/tseemann/prokka">https://github.com/tseemann/prokka</a> which can give us a nice fast and generally accurate annotation over our contigs.</p>
 <p>Running <code>prokka</code> in basic mode goes like this - just give it the <code>scaffold.fasta</code> file from the assembly.</p>
 <pre><code>prokka test_assembly/scaffolds.fasta</code></pre>
@@ -620,8 +643,8 @@ Why?
 2. &lt;timestamp&gt;.gff = annotations, gene descriptions, coordinates on genome
 3. &lt;timestamp&gt;.faa = protein sequences.</code></pre>
 </section>
-<section id="assessing-the-annotation-with-busco" class="level2" data-number="2.7">
-<h2 data-number="2.7" class="anchored" data-anchor-id="assessing-the-annotation-with-busco"><span class="header-section-number">2.7</span> Assessing the annotation with BUSCO</h2>
+<section id="assessing-the-annotation-with-busco" class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="assessing-the-annotation-with-busco"><span class="header-section-number">3.8</span> Assessing the annotation with BUSCO</h2>
 <p>Once we have constructed an annotation we naturally would like to know how complete it is. We can assess that by seeing how many of the conserved genes in that lineage we have been able to reconstruct, that is to ask the question ‘how many of the genes that should be in our genome did we find?’ We can do this using the tool <code>BUSCO</code> <a href="https://busco.ezlab.org/busco_userguide.html">https://busco.ezlab.org/busco_userguide.html</a>. <code>BUSCO</code> has a set of conserved genes that it calls <code>BUSCO GROUPS</code> for each lineage. It will search and tell you how many it found and how many it was expecting. The higher a proportion your analysis finds, the better the assembly and annotation is.</p>
 <p><code>BUSCO</code> needs our transcript sequences and the lineage we want to assess them in - <em>C. concisus</em> is an epsilon proteobacterium, so we can use that (the manual for BUSCO shows you how to work out what lineages it can use). Then we simply pass <code>BUSCO</code> the input file (<code>-i</code>) and the lineage tag (<code>-l</code>) and a folder to put the results in (<code>-o</code>) along with telling it to work in <code>transcriptome</code> mode (<code>-m transcriptome</code>)</p>
 <p>For the timestamped <code>prokka</code> annotation run above the command looks like this</p>
@@ -742,8 +765,8 @@ Why?
 </div>
 <p>The result 531 / 591 BUSCOs found (89.85% ) is not bad - considering we assembled a genome from quite a small number of reads. For real use cases we might hope for a lot better from prokaryote data. For large plant genomes numbers might be similar.</p>
 </section>
-<section id="wrap-up" class="level2" data-number="2.8">
-<h2 data-number="2.8" class="anchored" data-anchor-id="wrap-up"><span class="header-section-number">2.8</span> Wrap up</h2>
+<section id="wrap-up" class="level2" data-number="3.9">
+<h2 data-number="3.9" class="anchored" data-anchor-id="wrap-up"><span class="header-section-number">3.9</span> Wrap up</h2>
 <p>And there we complete a full experiment, using public databases to identify a species of interest, download some reads for it and assemble them using a genome assembler. Then we annotated the assembly to find genes and assessed the set of genes we did find to see how many of the ones we expected to be there were in fact there.</p>
 
 
@@ -1173,12 +1196,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./01-transcriptomes.html" class="pagination-link" aria-label="Gene expression databases and expression analysis">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Gene expression databases and expression analysis</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Gene expression databases and expression analysis</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./03-structures.html" class="pagination-link" aria-label="Finding structures and structural motifs using databases">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Finding structures and structural motifs using databases</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Finding structures and structural motifs using databases</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
