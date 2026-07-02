@@ -1,0 +1,8 @@
+# Finding structures and structural motifs using databases
+
+::: {.callout-warning appearance="simple"}
+**Stub — not yet converted.** This chapter is to be produced by the downstream conversion agent
+from the source tutorial at `../structural_dbs/structural_databases.Rmd`, following
+`.claude/SPEC.md` and `.claude/prompts/agent-structures.md`. Replace this whole file with the
+converted chapter.
+:::

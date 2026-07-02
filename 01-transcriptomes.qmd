@@ -1,0 +1,8 @@
+# Gene expression databases and expression analysis
+
+::: {.callout-warning appearance="simple"}
+**Stub — not yet converted.** This chapter is to be produced by the downstream conversion agent
+from the source tutorial at `../transcriptome_dbs/transcriptomes.Rmd`, following
+`.claude/SPEC.md` and `.claude/prompts/agent-transcriptomes.md`. Replace this whole file with the
+converted chapter.
+:::

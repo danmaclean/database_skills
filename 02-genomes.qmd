@@ -1,0 +1,7 @@
+# Genomic databases and genome assembly
+
+::: {.callout-warning appearance="simple"}
+**Stub — not yet converted.** This chapter is to be produced by the downstream conversion agent
+from the source tutorial at `../genome_dbs/genomes.Rmd`, following `.claude/SPEC.md` and
+`.claude/prompts/agent-genomes.md`. Replace this whole file with the converted chapter.
+:::

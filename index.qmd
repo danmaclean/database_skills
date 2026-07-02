@@ -1,0 +1,19 @@
+# Welcome {.unnumbered}
+
+Modern biology runs on public databases. Before you can analyse a genome, quantify a transcriptome, or reason about a protein's structure, you have to *find the data* — and finding it means knowing your way around the handful of big public archives that the whole field depends on: the NCBI/GEO/SRA family, the European databases at EMBL-EBI (ENA, Ensembl, PDBe), and the structural prediction and comparison tools that sit alongside them.
+
+This short book is a set of **hands-on, self-checking tutorials** that walk you through real database tasks and let you confirm you got the right answer as you go. Each chapter takes a genuine biological question, points you at the right database, and has you navigate it for yourself — retrieving accessions, downloading data, and interpreting what you find. Little multiple-choice checkpoints along the way let you make sure you're on track before moving on.
+
+There are three tutorials:
+
+1. **Gene expression databases** — using GEO and the SRA to find and download RNA-seq reads, then quantifying transcript abundance.
+2. **Genomic databases** — cross-referencing NCBI and the ENA to identify a species, find its assemblies, and download raw reads for assembly and annotation.
+3. **Structural databases** — searching PDBe for known protein structures and using structure-prediction tools to model a protein of your own.
+
+## How to use these tutorials
+
+Work through each chapter with the relevant database open in another browser tab, and actually do the steps — the whole point is to build the muscle memory of navigating these resources yourself. When you reach a question, have a go before you reveal the answer. Where a question has a **"Why?"** note attached, open it once you've answered: it explains *why* the answer is what it is, which is usually more useful than the answer itself.
+
+You don't need to install anything or run any code to use this book — everything runs in your browser. The command-line tools mentioned in the tutorials (for downloading and processing data) are things you'd run on your own machine in a real analysis; here they're shown so you can see the whole pipeline, and the questions are answerable from the information the databases give you.
+
+Let's get started.

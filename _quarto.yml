@@ -1,0 +1,32 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "Finding and Using Biological Databases"
+  author: "Dan MacLean"
+  date: "July 2026"
+  search: true
+  chapters:
+    - index.qmd
+    - 01-transcriptomes.qmd
+    - 02-genomes.qmd
+    - 03-structures.qmd
+
+# No bibliography, no R engine. These tutorials are pure prose + naquiz MCQs,
+# so the book renders with Quarto's markdown path alone — no knitr, no renv,
+# no R install. Keep it that way (see .claude/SPEC.md "Stay R-free").
+
+# naquiz: client-side multiple-choice self-check questions (::: {.question}).
+# The vendored extension carries a CSS scope fix (see .claude/MEMORY.md) — do
+# NOT overwrite it with a bare `quarto add nareal/naquiz`.
+filters:
+  - naquiz
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+
+comments:
+  hypothesis: true

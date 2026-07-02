@@ -1,0 +1,9 @@
+# Quarto build output (the site is built by CI and served from gh-pages).
+/docs/
+/.quarto/
+_book/
+*_files/
+
+# OS / editor cruft
+.DS_Store
+.Rproj.user

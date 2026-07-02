@@ -1,0 +1,34 @@
+name: Render book
+
+# Merge gate: render the book on every PR and every non-master push.
+# This book is PURE QUARTO — no R, no renv, no webR — so the job only needs
+# Quarto. Any render error (bad include, broken cross-ref, malformed naquiz
+# block) makes `quarto render` exit non-zero and fails the job.
+
+on:
+  pull_request:
+    branches: [master]
+  push:
+    branches-ignore: [master]   # feature-branch pushes get early feedback; master publishes separately
+
+concurrency:
+  group: render-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  render:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: '1.6.32'
+
+      - name: Render book (HTML; fails on any error)
+        run: quarto render
