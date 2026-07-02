@@ -9,6 +9,7 @@ book:
   search: true
   chapters:
     - index.qmd
+    - 00-primary-secondary.qmd
     - 01-transcriptomes.qmd
     - 02-genomes.qmd
     - 03-structures.qmd

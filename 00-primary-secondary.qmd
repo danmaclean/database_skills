@@ -1,0 +1,101 @@
+# Primary and Secondary Databases
+
+## About this chapter
+
+1.  Questions:
+
+-   What is the difference between a primary and secondary database?
+-   What are some examples of primary and secondary databases?
+-   How can I interact with them to find what I need?
+-   What is metadata?
+
+2.  Objectives:
+
+-   Understand the role of a primary and secondary database
+-   Know where to access and how to find training resources provided by the databases
+-   Understand the importance of clear structured metadata
+
+3.  Keypoints:
+
+-   Primary databases are repositories of experimental data
+-   Secondary databases are repositories of results based on the primary data
+-   Metadata is what makes data findable and useable
+
+## Primary databases
+
+In many fields, databases can be categorized as either primary or secondary. The main difference is actually quite simple, *Primary* databases hold data that come from experiments or direct data gathering exercises and their contents are fixed. A primary database is often called an archive or a database of scientific record.
+
+## Examples of primary databases
+
+### ENA
+
+[ENA - https://www.ebi.ac.uk/ena/browser/home](https://www.ebi.ac.uk/ena/browser/home)
+
+The European Nucleotide Archive (ENA) is a comprehensive record of the world's nucleotide sequencing information, covering raw sequencing data and sequence assemblies. Access to it is provided through a genome browser, search forms and tools, and an API - an interface that allows you to write programs that extract data. Like many databases, user training is a very important part of the mission of the database, so they provide a very comprehensive manual and how to's at <https://ena-docs.readthedocs.io/en/latest/>
+
+### GenBank
+
+[GenBank - https://www.ncbi.nlm.nih.gov/genbank](https://www.ncbi.nlm.nih.gov/genbank/)
+
+GenBank is another distinct genetic sequence database with annotated sequences and it aims to hold *all* publicly available DNA sequences. Access to it is provided by the Entrez system which can find identifiers (ID's) and BLAST which can search sequence similarity. There are also FTP (bulk download) and programatic acess via the NCBI e-utilities system. The provided training materials for GenBank are very dense, and take some reading <https://www.ncbi.nlm.nih.gov/guide/training-tutorials/>. The quick start guides are often a better place to start <https://www.ncbi.nlm.nih.gov/nuccore/>
+
+### GEO
+
+[GEO - https://www.ncbi.nlm.nih.gov/geo/](https://www.ncbi.nlm.nih.gov/geo/)
+
+The Gene Expression Omnibus (GEO) is a functional genomics repository of microarray and RNAseq data that accepts raw microarray, sequence and curated gene expression profiles. The normal web, FTP and programmatic access routes are provided and help is provided best through the FAQ <https://www.ncbi.nlm.nih.gov/geo/info/faq.html>.
+
+### BioStudies
+
+[BioStudies - https://www.ebi.ac.uk/biostudies/about](https://www.ebi.ac.uk/biostudies/about)
+
+BioStudies is a relatively new database that consolidates some other databases. BioStudies database holds descriptions of biological studies and links to data from these studies in other databases. Here you can find transcriptome data (from ArrayExpress), literature data (from PubMedCentral), image data (from BioImages) and more. The help describes searching <https://www.ebi.ac.uk/biostudies/help> and again this database provides a web search interface, FTP and Aspera for bulk download and an API for programmatic access.
+
+### Protein Data Bank
+
+[Protein Data Bank https://www.ebi.ac.uk/pdbe/node/1](https://www.ebi.ac.uk/pdbe/node/1)
+
+PDBe aims to provide a resource of high quality macromolecular structures with integration of function, taxonomy and sequence. The databank provides excellent tutorials at <https://www.ebi.ac.uk/pdbe/training/tutorials> in particular the course at (https://www.ebi.ac.uk/training-beta/online/courses/biomacromolecular-structures)\[https://www.ebi.ac.uk/training-beta/online/courses/biomacromolecular-structures\] and the YouTube channel <https://www.youtube.com/user/ProteinDataBank>
+
+## Secondary databases
+
+Secondary databases contain the results of analyses, often using the contents of primary databases. They will typically use information and raw data from various sources to create a new resource of information. Often highly curated, they can employ combinations of tools and analyses to present a synthesis of lower data types. These are the sort of databases molecular biologists are most used to using and many provide derived information of varying degrees of confidence about objects within the primary sequences, things like genes in genomes.
+
+## Examples of secondary databases
+
+### Ensembl
+
+<http://www.ensembl.org/index.html>
+
+Ensembl is a genome browser based database that contains information on comparative genomics, sequence variation, transcriptional regulation alongside annotated genes. While [ensembl.org](ensembl.org) is focussed on vertebrates, there are sister databases for fungi, plants and bacteria. The help files are large and have many video lessons <http://www.ensembl.org/info/website/tutorials/index.html>. The BioMart tool in particular is very useful for medium scale retrieval [BioMart](http://www.ensembl.org/Multi/Help/Movie?db=core;id=189). The APIs provided can make whole genome and comparitive genomics analysis very streamlined.
+
+### UniProtKB
+
+<https://www.uniprot.org/help/uniprotkb>
+
+UniProt Knowledgebase is a database of functional information on proteins with a focus on accurate and consistent annotations. The database is divided into two parts, one with manually-curated records with information from literature and curator analyses (Swiss-Prot), the other with computationally-analysed only records that are yet to be examined by a human (TrEMBL). A YouTube channel of introductory videos is provided <https://www.youtube.com/channel/UCkCR5RJZCZZoVTQzTYY92aw> for high level information. A large selection of on-demand training is also available through EBI Training Portal, e.g <https://www.ebi.ac.uk/training/events/guide-uniprot-students/>
+
+## Metadata
+
+Data, especially raw data is absolutely useless on its own. It always need some contextual information to allow us to make use of it. This contextual data is called `metadata` - data about the data. For example genome sequencing data would need information about the organism sequenced, the machine used to sequence, the tissue type and much more. Anything that would be useful needs to be stored along with the data. Without metadata it would not possible to find data and select the correct samples for a given analysis of it.
+
+In order for metadata to be useful we need to capture the same metadata for all data samples. This can mean not only standardising the questions we ask of, but also the words we allow to be used in answering the questions. This can seem a bit restrictive at first, but is actually essential. Consider two labs working on NLR proteins, one group is in the habit of calling them `NBS-LRR` proteins, the other `NLR`. These two terms would be completely different to a computer and anyone within the field not yet aware of all the jargon. Some searches and analyses and computer programs would completely fail to link these up.
+
+As a result there are a wide range of accepted international standards on the metadata and this is why databases require users to annotate their data according to these standard. The standards themselves are constantly developing as new technologies and tools emerge, agreeing on data standards is an important and valuable job within research.
+
+### Minimum Information Standards
+
+Many data types have a 'minimum information standard', a set of guidelines for reporting data on them. These ensure that the data of a certain type are all reported on in the same consistent way. Microarrays (MIAME), RNASeq (MINSEQE), and proteomics have data standards specific to them. More are listed at [FAIRSHARE](https://fairsharing.org/collection/MIBBI).
+
+### Controlled Vocabularies
+
+To maintain a consistent set of terms for describing biological concepts and objects, we use controlled vocabularies, taxonomies and ontologies, among others. Controlled vocabularies restrict the words a human may use to describe something, a list of countries on a website would be an example of this. There are other ways to structure the controlled vocabulary. Taxonomies are ways of classifying things, often hierarchically from a more generic to a more specific group. This structure can add flexibility over the simple list, the biological taxonomy is an example of this. Ontologies represent the background knowledge of a domain, the objects are represented as terms and links between them are created to represent the relationships, such that we can analyse the ontology. The typical example is the Gene Ontology, which you can learn more about here <https://www.ebi.ac.uk/training/online/course/goa-and-quickgo-quick-tour>
+
+### Conclusion
+
+::: {.callout-note}
+
+    * Databases are important stores of data for the scientific record
+    * Databases enable new analyses. 
+    * The metadata used to describe the data in databases is what makes the data useful.
+:::

@@ -1,5 +1,15 @@
 # Genomic databases and genome assembly
 
+## About this chapter
+
+1. Questions
+   - How can I use the ENA and NCBI to download sequence reads?
+   - What is the overall pipeline for assembling genomic DNA reads?
+   - How can I annotate an assembled prokaryotic genome?
+2. Objectives
+   - Download some reads identified in ENA using efficient tools
+   - Run the tools needed to build a first draft genome assembly
+
 ## Aims
 
 The aim of this tutorial is to examine how we can use public genomics databases, cross reference between them and download data for our own analyses. We shall work through an example in which we seek and retrieve data for an interesting species and learn what tools we have for downloading and processing data.

@@ -1,5 +1,15 @@
 # Gene expression databases and expression analysis
 
+## About this chapter
+
+1. Questions
+   - How can I use the ENA and NCBI to download sequence reads for transcripts?
+   - What is the overall pipeline for estimating abundance of transcripts?
+   - How can I annotate an assembled prokaryotic genome?
+2. Objectives
+   - Download some reads identified in ENA using efficient tools
+   - Run the tools needed to estimate transcript abundances
+
 ## Aims
 
 The aim of this tutorial is to examine how we can use public genomics databases to retrieve RNAseq data that describes expression of genes. We shall then work through an example in which we carry out expression estimates for the data we downloaded.

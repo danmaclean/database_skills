@@ -1,5 +1,15 @@
 # Finding structures and structural motifs using databases
 
+## About this chapter
+
+1. Questions
+   - What is held in structural databases?
+   - How can I find the structure of my protein?
+   - Are there any solved structures like my protein?
+2. Objectives
+   - Understand what is held in a structural database
+   - Know how to get an approximate structure for a protein of interest
+
 ## Aims
 
 The aim of this tutorial is to examine how we can use public tools and databases to retrieve structures and predict the structures of our own protein of interest. We shall then work through an example in which we search for a known structure that fits a protein of interest and predict the structure of a protein of our own.

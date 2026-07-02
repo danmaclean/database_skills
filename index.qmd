@@ -14,6 +14,28 @@ There are three tutorials:
 
 Work through each chapter with the relevant database open in another browser tab, and actually do the steps — the whole point is to build the muscle memory of navigating these resources yourself. When you reach a question, have a go before you reveal the answer. Where a question has a **"Why?"** note attached, open it once you've answered: it explains *why* the answer is what it is, which is usually more useful than the answer itself.
 
-You don't need to install anything or run any code to use this book — everything runs in your browser. The command-line tools mentioned in the tutorials (for downloading and processing data) are things you'd run on your own machine in a real analysis; here they're shown so you can see the whole pipeline, and the questions are answerable from the information the databases give you.
+The book itself needs nothing installed — the tutorials and their self-check questions run entirely in your browser, and every question is answerable from what the databases show you. The tutorials *do*, however, walk through command-line tools (for downloading and processing data) that you'd run on your own machine in a real analysis. If you want to follow those hands-on steps for yourself rather than just read them, see the prerequisites below.
+
+## Prerequisites
+
+### What you should already know
+
+The hands-on command-line parts assume you're already comfortable using command-line tools.
+
+### Software
+
+You have two options for running the command-line tools.
+
+The easiest is the pre-built Google Colab document, which has everything ready to go: [Link to Google Colab](https://colab.research.google.com/drive/1LJffmZ4yuzEjvtWp6Sj5tSibyTKJb_b1?usp=sharing). You'll need a Google account to use it — if you'd rather not use a personal one, you can sign up with your `@tsl.ac.uk` address.
+
+Alternatively, you can install the tools on your own machine. You'll need:
+
+- [SRA Toolkit](https://github.com/ncbi/sra-tools/wiki/01.-Downloading-SRA-Toolkit)
+- [SPAdes](https://github.com/ablab/spades)
+- [prokka](https://github.com/tseemann/prokka)
+- [BUSCO](https://busco.ezlab.org/busco_userguide.html)
+- [kallisto](https://pachterlab.github.io/kallisto/download)
+
+Most of these can be installed with [bioconda](https://bioconda.github.io/).
 
 Let's get started.
