@@ -5,19 +5,23 @@ Last updated: 2026-07-02.
 
 ## Where we are
 
-**Phase 0 (scaffold) + Phase 1 (chapter conversions) COMPLETE — awaiting author review.**
+**🎉 LIVE (2026-07-02).** All phases complete. The book is published at
+**https://danmaclean.github.io/database_skills/** (HTTP 200, chapters serving).
 
-- **`master`** (`e7c6b37`) = clean scaffold only (stubs).
-- **`convert-chapters`** = four clean commits off `master`: the three converted chapters
-  (`01`/`02`/`03`) + their `FLAGS-*.md`, and `AUTHOR-REVIEW.md`. Renders clean end-to-end
-  (`quarto render` → exit 0), no R/webR leakage, naquiz CSS-bleed impossible. Not yet pushed; no
-  GitHub remote yet.
-- **Question tallies:** 12 (transcriptomes) + 14 (genomes) + 11 (structures) = 37, each with one
-  `.correct-choice` and a fresh "Why?" callout.
+- **`master`** = the trunk AND live source (scaffold + 3 converted chapters + author-approved fixes +
+  FLAGS/AUTHOR-REVIEW docs), pushed to `github.com/danmaclean/database_skills` (public).
+- **`gh-pages`** = CI-managed live Pages source (don't hand-edit). GitHub Pages source was
+  **auto-enabled** by `quarto publish` (source = `gh-pages`, path `/`) — the manual Settings→Pages
+  flip was NOT needed this time.
+- **CI:** `publish.yml` renders + publishes to `gh-pages` on every push to `master` (green);
+  `render.yml` gates PRs/feature branches. Both Quarto-only (no R/renv).
+- **Author sign-off applied:** `taxid-1` K12f→K12, structures `dda321`→`d3d32a1`; `dload-2`
+  single-correct and the structures Aims rewrite confirmed OK. Decision trail in `AUTHOR-REVIEW.md`.
+- **Question tallies:** 12 + 14 + 11 = 37, each one `.correct-choice` + a "Why?" callout.
 
-**▶ The immediate next step is author review of `AUTHOR-REVIEW.md`** (content-bug decisions +
-science-checking the 37 new "Why?" notes). Then Phase 3 go-live (create `danmaclean/database_skills`,
-push, build `gh-pages`, flip Pages source — manual UI step).
+**▶ Remaining follow-ups (non-blocking):** retire the three shinyapps.io deployments now the new site
+is confirmed live; optional in-browser click-test of naquiz on the live pages; future maintenance of
+the drift-prone answer counts flagged in `AUTHOR-REVIEW.md`.
 
 > **Incident/lesson (2026-07-02):** a stray no-op `fork` launched during scaffolding inherited the
 > full plan and autonomously ran the whole conversion *in parallel* with the intended agents, doing

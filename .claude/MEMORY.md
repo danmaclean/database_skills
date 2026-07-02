@@ -31,15 +31,24 @@ session chatter. Much of this is inherited from the allied stats-book migration 
   in a browser, don't theorise. The stats-book scratchpad had a Playwright harness (`find-red.mjs`)
   that renders → serves `docs/` → reads computed colours; reuse that pattern if CSS bleed recurs.
 
-## Hosting / deploy
-- Target: `danmaclean/database_skills` on GitHub → `gh-pages` branch serves the site at
-  `danmaclean.github.io/database_skills`. `publish.yml` rebuilds `gh-pages` from `master` on push.
+## Hosting / deploy — LIVE (2026-07-02)
+- **Live at https://danmaclean.github.io/database_skills/**, repo `danmaclean/database_skills`
+  (public). `gh-pages` branch serves the site; `publish.yml` rebuilds it from `master` on every push.
   **Never commit `docs/`** (git-ignored). Don't hand-edit `gh-pages` (CI-generated).
-- **Pages-source flip is a manual UI step.** The author's working fine-grained PAT lacks Pages-admin
-  scope, so setting Settings → Pages → source = `gh-pages` must be done in the browser (learned on
-  the stats book). Also: a fine-grained PAT scoped to *selected* repos can *create* a repo but can't
-  push to a brand-new one until it's added to the token's allow-list — commit the first file via the
-  web UI or add the repo to the token first.
+- **`gh-pages` must exist BEFORE `quarto publish` / the CI publish action will work** — both error
+  with "the remote origin does not have a branch named gh-pages" on a fresh repo, and
+  `quarto publish gh-pages --no-prompt` will NOT bootstrap it (the `--no-prompt` flag suppresses the
+  "create it? Y/n" and just fails). **Bootstrap once:** create an orphan `gh-pages` branch by hand and
+  push it (did this via a throwaway `git worktree add --detach` + `git checkout --orphan gh-pages` +
+  a `.nojekyll`/placeholder commit), *then* `quarto publish gh-pages --no-prompt` populates it and the
+  CI takes over on later pushes.
+- **Pages source was auto-enabled by `quarto publish`** here (API set source=`gh-pages`, path `/`), so
+  the manual Settings→Pages flip that the stats book needed was NOT required this time. (The PAT could
+  enable Pages after all.) The `git push` of `master` to the brand-new repo also worked without the
+  selected-repos allow-list issue biting. If a future new repo *does* 403 on first push, add it to the
+  fine-grained PAT's selected repos or commit the first file via the web UI.
+- The PAT still **cannot rerun workflows** (no Actions:write) — re-trigger `publish.yml` with an empty
+  commit push, not a rerun.
 - Source repos `TeamMacLean/transcriptome_dbs`, `genome_dbs`, `structural_dbs` are on branch `main`,
   deployed via `rsconnect::deployDoc`. They are **read-only inputs** here; keep them live until the
   new site is signed off, then retire.
