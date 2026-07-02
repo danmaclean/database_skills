@@ -5,8 +5,29 @@ Last updated: 2026-07-02.
 
 ## Where we are
 
-**Phase 0 (scaffold) COMPLETE.** The seed repo `database_skills` exists locally at
-`/Users/macleand/Desktop/database_skills` (git-initialised, no remote yet). It holds:
+**Phase 0 (scaffold) + Phase 1 (chapter conversions) COMPLETE — awaiting author review.**
+
+- **`master`** (`e7c6b37`) = clean scaffold only (stubs).
+- **`convert-chapters`** = four clean commits off `master`: the three converted chapters
+  (`01`/`02`/`03`) + their `FLAGS-*.md`, and `AUTHOR-REVIEW.md`. Renders clean end-to-end
+  (`quarto render` → exit 0), no R/webR leakage, naquiz CSS-bleed impossible. Not yet pushed; no
+  GitHub remote yet.
+- **Question tallies:** 12 (transcriptomes) + 14 (genomes) + 11 (structures) = 37, each with one
+  `.correct-choice` and a fresh "Why?" callout.
+
+**▶ The immediate next step is author review of `AUTHOR-REVIEW.md`** (content-bug decisions +
+science-checking the 37 new "Why?" notes). Then Phase 3 go-live (create `danmaclean/database_skills`,
+push, build `gh-pages`, flip Pages source — manual UI step).
+
+> **Incident/lesson (2026-07-02):** a stray no-op `fork` launched during scaffolding inherited the
+> full plan and autonomously ran the whole conversion *in parallel* with the intended agents, doing
+> git surgery (branch moves, an amend) that tangled history and briefly looked like data loss.
+> Nothing was lost; history was rebuilt cleanly off `master`. **Lesson: never leave a `fork` running
+> with a vague/no-op prompt — it will act on your whole context. Kill stray agents immediately.**
+
+## Scaffold contents (Phase 0)
+
+The seed repo holds:
 
 - `_quarto.yml` — flat 3-chapter book, `naquiz` filter, `format: html` (cosmo), R-free.
 - `_extensions/nareal/naquiz` — vendored, **with the `.choices`-scoped CSS fix already applied**.
